@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Print Exposure Time Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Print Exposure Time Calculator</h1>
+        <label for="initial-time">Initial Exposure Time (seconds):</label>
+        <input type="number" id="initial-time" step="0.01">
+        
+        <label for="stop-change">Change in Stops (positive for more light, negative for less):</label>
+        <input type="number" id="stop-change" step="0.01">
+        
+        <button onclick="calculateExposure()">Calculate New Exposure Time</button>
+        
+        <h2>New Exposure Time: <span id="new-time"></span> seconds</h2>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

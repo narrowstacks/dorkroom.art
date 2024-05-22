@@ -33,7 +33,7 @@
                         <label for="paperSize">Paper Size:</label>
                         <select id="paperSize" name="paperSize" onchange="updatePaperSize()">
                             <option value="4x5">4x5</option>
-                            <option value="4x6">4x6</option>
+                            <option value="4x6 ">4x6</option>
                             <option value="5x7">5x7</option>
                             <option value="8x10">8x10</option>
                             <option value="11x14">11x14</option>
@@ -72,13 +72,15 @@
             </form>
 
             <div class="preview-container" id="previewContainer" style="display: none;">
-                <input type="button" value="Change Orientation" onclick="toggleOrientation()">
+                
                 <br><br>
                 <div id="paperPreview" class="paper-preview">
                     <div id="printPreviewContainer" class="print-preview-container">
                         <div id="printPreview" class="print-preview"></div>
                     </div>
                 </div>
+                <br>
+                <input type="button" value="Change Orientation" onclick="toggleOrientation()">
             </div>
         </div>
 

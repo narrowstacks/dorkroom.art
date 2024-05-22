@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Usage Projector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chemical Usage Projector</h1>
+        <div class="calculators">
+            <div class="developer-usage">
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <td><label for="from-date">From:</label></td>
+                            <td><input type="date" id="from-date"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="to-date">To:</label></td>
+                            <td><input type="date" id="to-date"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="num-classes">Number of classes that use paper developer during this time:</label></td>
+                            <td><input type="number" id="num-classes" value="2"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button onclick="calculateDeveloperUses()">Calculate Developer Uses</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="result-output">
+                    <p id="developer-uses"></p>
+                    <p id="developer-uses-special"></p>
+                </div>
+            </div>
+
+            <div class="volume-mixer-container">
+                <h2>Volume Mixer</h2>
+                <form name="form1">
+                    <div class="form-group">
+                        <label for="units1">Dilution:</label>
+                        <input type="number" id="units1" name="units1" value="1">
+                        <span>+</span>
+                        <input type="number" id="units2" name="units2" value="14">
+                        <span>+</span>
+                        <input type="number" id="units3" name="units3" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="vol">Final Volume (ml):</label>
+                        <input type="number" id="vol" name="vol" value="500">
+                    </div>
+                    <div class="result-output">
+                        <p id="Total1"></p>
+                        <p id="Total2"></p>
+                        <p id="Total3"></p>
+                        <p id="Water"></p>
+                    </div>
+                    <button type="button" onclick="calc_vol()">Calculate</button>
+                </form>
+            </div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Chemical</th>
+                    <th>Amount Per Container</th>
+                    <th>Amount Used Per Mix (ml)</th>
+                    <th>Estimated Usage</th>
+                    <th>Cost Per Container</th>
+                    <th>Uses Per Container</th>
+                    <th>Total Cost</th>
+                    <th>Cost Per Use</th>
+                </tr>
+            </thead>
+            <tbody id="chemicals-table">
+                <!-- Rows will be inserted here by JavaScript -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" style="text-align:right;"><strong>Total Estimated Cost:</strong></td>
+                    <td id="total-estimated-cost" style="text-align:center;"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        <button id="add-row" onclick="addRow()">Add Row</button>
+        <button onclick="calculateResults()">Calculate</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

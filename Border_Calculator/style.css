@@ -130,7 +130,6 @@ p {
 
 .print-preview {
     background-color: #66bb6a;
-    border: 1px solid #388e3c;
     display: flex;
     justify-content: center;
     align-items: center;

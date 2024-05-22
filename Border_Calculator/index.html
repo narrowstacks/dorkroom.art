@@ -13,7 +13,7 @@
             <form id="borderForm">
                 <div class="selections">
                     <div class="selection">
-                        <label for="aspectRatio">Negative Aspect Ratio:</label>
+                        <label for="aspectRatio">Aspect Ratio:</label>
                         <select id="aspectRatio" name="aspectRatio" onchange="updateAspectRatio()">
                             <option value="2/3">35mm (2x3)</option>
                             <option value="65/24">XPan Pano (65x24)</option>
@@ -72,7 +72,8 @@
             </form>
 
             <div class="preview-container" id="previewContainer" style="display: none;">
-                <input type="button" value="Orientation" onclick="toggleOrientation()">
+                <input type="button" value="Change Orientation" onclick="toggleOrientation()">
+                <br><br>
                 <div id="paperPreview" class="paper-preview">
                     <div id="printPreviewContainer" class="print-preview-container">
                         <div id="printPreview" class="print-preview"></div>

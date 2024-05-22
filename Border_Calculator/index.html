@@ -9,66 +9,80 @@
     <div class="container">
         <h1>Darkroom Print Border Calculator</h1>
 
-        <form id="borderForm">
-            <div class="selections">
-                <div class="selection">
-                    <label for="aspectRatio">Negative Aspect Ratio:</label>
-                    <select id="aspectRatio" name="aspectRatio">
-                        <option value="2/3">35mm (2x3)</option>
-                        <option value="65/24">XPan Pano (65x24)</option>
-                        <option value="6/4.5">6x4.5</option>
-                        <option value="1">6x6</option>
-                        <option value="6/7">6x7</option>
-                        <option value="6/8">6x8</option>
-                        <option value="6/9">6x9</option>
-                        <option value="4/5">4x5</option>
-                        <option value="5/7">5x7</option>
-                        <option value="4/3">4x3</option>
-                    </select>
+        <div class="content">
+            <form id="borderForm">
+                <div class="selections">
+                    <div class="selection">
+                        <label for="aspectRatio">Negative Aspect Ratio:</label>
+                        <select id="aspectRatio" name="aspectRatio" onchange="updateAspectRatio()">
+                            <option value="2/3">35mm (2x3)</option>
+                            <option value="65/24">XPan Pano (65x24)</option>
+                            <option value="6/4.5">6x4.5</option>
+                            <option value="1">6x6</option>
+                            <option value="6/7">6x7</option>
+                            <option value="6/8">6x8</option>
+                            <option value="6/9">6x9</option>
+                            <option value="4/5">4x5</option>
+                            <option value="5/7">5x7</option>
+                            <option value="4/3">4x3</option>
+                            <option value="Custom">Custom</option>
+                        </select>
+                    </div>
+
+                    <div class="selection">
+                        <label for="paperSize">Paper Size:</label>
+                        <select id="paperSize" name="paperSize" onchange="updatePaperSize()">
+                            <option value="4x5">4x5</option>
+                            <option value="4x6">4x6</option>
+                            <option value="5x7">5x7</option>
+                            <option value="8x10">8x10</option>
+                            <option value="11x14">11x14</option>
+                            <option value="16x20">16x20</option>
+                            <option value="20x24">20x24</option>
+                            <option value="Custom">Custom</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="selection">
-                    <label for="paperSize">Paper Size:</label>
-                    <select id="paperSize" name="paperSize" onchange="updatePaperSize()">
-                        <option value="4x5">4x5</option>
-                        <option value="4x6">4x6</option>
-                        <option value="5x7">5x7</option>
-                        <option value="8x10">8x10</option>
-                        <option value="11x14">11x14</option>
-                        <option value="16x20">16x20</option>
-                        <option value="20x24">20x24</option>
-                        <option value="Custom">Custom</option>
-                    </select>
+
+                <div id="customDimensions" class="dimensions" style="display: none;">
+                    <div class="dimension">
+                        <label for="paperWidth">Paper Width (in inches):</label>
+                        <input type="number" id="paperWidth" name="paperWidth" required oninput="setCustomSize()">
+                    </div>
+                    <div class="dimension">
+                        <label for="paperHeight">Paper Height (in inches):</label>
+                        <input type="number" id="paperHeight" name="paperHeight" required oninput="setCustomSize()">
+                    </div>
                 </div>
-            </div>
-
-            <div id="customDimensions" class="dimensions" style="display: none;">
-                <div class="dimension">
-                    <label for="paperWidth">Paper Width (in inches):</label>
-                    <input type="number" id="paperWidth" name="paperWidth" required oninput="setCustomSize()">
+                <div id="customAspectRatio" class="dimensions" style="display: none;">
+                    <div class="dimension">
+                        <label for="customAspectWidth">Custom Aspect Ratio Width:</label>
+                        <input type="number" id="customAspectWidth" name="customAspectWidth" required oninput="setCustomAspectRatio()">
+                    </div>
+                    <div class="dimension">
+                        <label for="customAspectHeight">Custom Aspect Ratio Height:</label>
+                        <input type="number" id="customAspectHeight" name="customAspectHeight" required oninput="setCustomAspectRatio()">
+                    </div>
                 </div>
-                <div class="dimension">
-                    <label for="paperHeight">Paper Height (in inches):</label>
-                    <input type="number" id="paperHeight" name="paperHeight" required oninput="setCustomSize()">
-                </div>
-            </div>
 
-            <label for="minBorder">Minimum Border Size (in inches):</label>
-            <input type="number" id="minBorder" name="minBorder" required><br><br>
+                <label for="minBorder">Minimum Border Size (in inches):</label>
+                <input type="number" id="minBorder" name="minBorder" required value= 1><br><br>
 
-            <input type="button" value="Calculate" onclick="calculateBorders()">
-        </form>
+                <input type="button" value="Calculate" onclick="calculateBorders()">
+            </form>
 
-        <h2>Result</h2>
-        <p id="result"></p>
-
-        <div class="preview-container" id="previewContainer" style="display: none;">
-            <input type="button" value="Orientation" onclick="toggleOrientation()">
-            <div id="paperPreview" class="paper-preview">
-                <div id="printPreviewContainer" class="print-preview-container">
-                    <div id="printPreview" class="print-preview"></div>
+            <div class="preview-container" id="previewContainer" style="display: none;">
+                <input type="button" value="Orientation" onclick="toggleOrientation()">
+                <div id="paperPreview" class="paper-preview">
+                    <div id="printPreviewContainer" class="print-preview-container">
+                        <div id="printPreview" class="print-preview"></div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <h2>Result</h2>
+        <p id="result"></p>
     </div>
 
     <script src="index.js"></script>

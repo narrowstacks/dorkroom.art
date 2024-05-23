@@ -129,7 +129,7 @@ function calculateImageDimensions(availableWidth, availableHeight, aspectRatio) 
 }
 
 function displayResult(imageWidth, imageHeight, borderWidth, borderHeight) {
-    document.getElementById('result').innerText = `image dimensions: ${imageWidth.toFixed(2)} x ${imageHeight.toFixed(2)} inches\nborder Width: ${borderWidth.toFixed(2)} inches\nborder Height: ${borderHeight.toFixed(2)} inches`;
+    document.getElementById('result').innerText = `image dimensions: ${imageWidth.toFixed(2)} x ${imageHeight.toFixed(2)} inches\nborder width: ${borderWidth.toFixed(2)} inches\nborder height: ${borderHeight.toFixed(2)} inches`;
     document.getElementById('previewContainer').style.display = 'block';
 }
 

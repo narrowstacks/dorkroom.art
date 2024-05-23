@@ -1,12 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
 body {
+    font-family: 'Jost', sans-serif;
     background-color: #e8f5e9; /* pastel green background */
     color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
     max-width: 800px; /* Increased max-width to accommodate both form and preview */
+    width: 100%;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +57,7 @@ label {
 
 input[type="number"],
 select {
-    width: 100%; /* Adjusted width */
+    width: 80%; /* Adjusted width */
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #a5d6a7;

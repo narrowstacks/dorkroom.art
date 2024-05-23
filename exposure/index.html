@@ -3,25 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../common.css">
-    <link rel="stylesheet" href="/exposure/exposure.css">
-    <title>Print Exposure Time Calculator</title>
+    <link rel="stylesheet" href="exposure.css">
+    <title>Print Exposure and Resizing Calculator</title>
 </head>
 <body>
     <div class="container">
         <a href="/" class="home-button">return to home</a>
         <h1>print exposure time calculator</h1>
-        <label for="initial-time">initial exposure time (seconds):</label>
-        <input type="number" id="initial-time" step="0.01">
+        <label for="initial-time">initial exposure Time (seconds):</label>
+        <input type="number" id="initial-time" step="0.1">
         
         <label for="stop-change">change in stops (positive for more light, negative for less):</label>
-        <input type="number" id="stop-change" step="0.01">
+        <input type="number" id="stop-change" step="0.25">
         
         <button onclick="calculateExposure()">calculate new exposure time</button>
         
         <h2>new exposure time: <span id="new-time"></span> seconds</h2>
+        
+        <h1>print resizing calculator</h1>
+        <form id="resizeForm">
+            <label for="originalLength">original length (inches):</label>
+            <input type="number" id="originalLength" required>
+
+            <label for="originalWidth">original width (inches):</label>
+            <input type="number" id="originalWidth" required>
+
+            <label for="newLength">new length (inches):</label>
+            <input type="number" id="newLength" required>
+
+            <label for="newWidth">new Wwdth (inches):</label>
+            <input type="number" id="newWidth" required>
+
+            <label for="originalTime">original exposure time (seconds):</label>
+            <input type="number" id="originalTime" required>
+
+            <button type="submit">calculate</button>
+        </form>
+
+        <h2>Results</h2>
+        <p id="newExposureTime"></p>
+        <p id="stopsDifference"></p>
     </div>
 
-    <script src="/exposure/exposure.js"></script>
+    <script src="exposure.js"></script>
 </body>
 </html>

@@ -35,7 +35,7 @@
                         <label for="paperSize">paper size:</label>
                         <select id="paperSize" name="paperSize" onchange="updatePaperSize()">
                             <option value="4x5">4x5</option>
-                            <option value="4x6 ">4x6</option>
+                            <option value="4x6 (postcard)">4x6</option>
                             <option value="5x7">5x7</option>
                             <option value="8x10">8x10</option>
                             <option value="11x14">11x14</option>
@@ -70,7 +70,7 @@
                 <label for="minBorder">minimum border size (in inches):</label>
                 <input type="number" id="minBorder" name="minBorder" required value= 1><br><br>
 
-                <input type="button" value="Calculate" onclick="calculateBorders()">
+                <input type="button" value="calculate" onclick="calculateBorders()">
                 <h2>result</h2>
                 <p id="result"></p>
             </form>

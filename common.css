@@ -9,24 +9,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    flex-direction: column; /* Change to column for better stacking on mobile */
+}
+
+h1, h2, h3 {
+    margin-bottom: 10px;
 }
 
 h1 {
     color: #d9534f; /* pastel red for h1 */
-    margin-bottom: 10px;
     font-weight: 700; /* Bold weight */
 }
 
 h2 {
     color: #e57373; /* pastel red for h2 */
-    margin-bottom: 5px;
     font-weight: 600; /* Semi-bold weight */
 }
 
 h3 {
     color: #f08080; /* pastel red for h3 */
-    margin-bottom: 10px;
     font-weight: 500; /* Medium weight */
 }
 
@@ -34,9 +36,9 @@ h3 {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px 40px;
-    max-width: 500px; /* Increased max-width to accommodate both form and preview */
-    width: 100%;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%; /* Adjust to 90% for better fit on mobile */
     text-align: center;
 }
 
@@ -48,7 +50,21 @@ h3 {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    align-self: flex-start; /* Aligns the button to the left */
     margin-bottom: 20px;
     font-weight: 500; /* Medium weight */
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px; /* Reduce padding on mobile */
+    }
+    h1 {
+        font-size: 24px; /* Adjust font size for mobile */
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 18px;
+    }
 }

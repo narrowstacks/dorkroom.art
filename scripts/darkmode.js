@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const githubLogo = document.querySelector('.github-logo');
 
     // Function to get a cookie by name
     function getCookie(name) {
@@ -39,9 +40,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (document.body.classList.contains('dark-mode')) {
             setCookie('darkMode', 'enabled', { 'max-age': 3600 * 24 * 365 });
             darkModeToggle.textContent = '☀️';
+            githubLogo.src = 'media/github-mark.png'; // Change logo to dark mode
         } else {
             setCookie('darkMode', 'disabled', { 'max-age': 3600 * 24 * 365 });
             darkModeToggle.textContent = '🌙';
+            githubLogo.src = 'media/github-mark-white.png'; // Change logo to light mode
         }
     }
 
@@ -52,7 +55,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (getCookie('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
         darkModeToggle.textContent = '☀️';
+        githubLogo.src = 'media/github-mark.png'; // Change logo to dark mode
     } else {
         darkModeToggle.textContent = '🌙';
+        githubLogo.src = 'media/github-mark-white.png'; // Change logo to light mode
     }
 });

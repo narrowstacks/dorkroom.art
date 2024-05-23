@@ -172,7 +172,9 @@ h3 {
 }
 
 .link-button {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
@@ -237,8 +239,17 @@ h3 {
     background-color: var(--github);
     color: #ffffff;
     width: 40%;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Add color transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: var(--font-weight-normal);
+    margin: 0 auto;
 }
+
 
 .link-button-github:hover {
     background-color: var(--github-hover);
@@ -253,6 +264,15 @@ body.dark-mode .link-button-github:hover {
     background-color: var(--github-dark-hover);
     color: var(--github-dark-text-hover);
 }
+
+.github-logo{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    align-items: center;
+    transition: opacity 0.5s ease; /* Add transition for opacity */
+}
+
 
 .hidden {
     display: none;

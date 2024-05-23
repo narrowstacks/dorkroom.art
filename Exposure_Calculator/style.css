@@ -18,6 +18,9 @@ body {
     max-width: 500px;
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -47,4 +50,20 @@ button {
 
 button:hover {
     background-color: #7b327b; /* darker pastel purple */
+}
+
+.home-button {
+    background-color: white;
+    color: #8e388e;
+    border: 2px solid #ce70ce;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-start; /* Aligns the button to the left */
+    margin-bottom: 20px;
+}
+
+.home-button:hover {
+    background-color: #f1f1f1;
 }

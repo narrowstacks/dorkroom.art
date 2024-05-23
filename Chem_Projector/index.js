@@ -215,6 +215,9 @@ function calc_vol() {
     document.getElementById('Water').innerHTML = "water";
 }
 
+function returnToHome() {
+    window.location.href = '/index.html'; // Replace with the appropriate URL
+}
 window.onload = function() {
     loadTable();
 };

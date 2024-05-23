@@ -165,4 +165,13 @@ p {
         font-size: 14px;
         padding: 8px;
     }
+    .content {
+        flex-direction: column; /* Ensure column direction for mobile */
+    }
+    .preview-container {
+        order: 2; /* Move preview container below result */
+    }
+    #result {
+        order: 1; /* Ensure result is above preview */
+    }
 }

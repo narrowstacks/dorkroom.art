@@ -9,17 +9,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    flex-direction: column; /* Change to column for better stacking on mobile */
+    height: 100vh;
 }
 
 .container {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 800px;
-    width: 90%; /* Adjust to 90% for better fit on mobile */
+    padding: 20px 40px;
+    max-width: 800px; /* Increased max-width to accommodate both form and preview */
+    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -34,6 +33,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    align-self: flex-start; /* Aligns the button to the left */
     margin-bottom: 20px;
     font-weight: 500; /* Medium weight */
 }
@@ -57,6 +57,7 @@ label {
 
 input[type="number"],
 select {
+    /* width: 80%; */
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #a5d6a7;
@@ -67,14 +68,26 @@ select {
 
 .selections {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    justify-content: space-between;
+}
+
+.selection {
+    flex: 1;
+    margin: 0 5px;
 }
 
 .dimensions {
     display: flex;
-    flex-direction: row;
     gap: 10px;
+    margin-top: 10px;
+}
+
+.dimension {
+    flex: 1;
+}
+
+.dimension input {
+    width: 40%;
 }
 
 input[type="button"] {
@@ -109,7 +122,7 @@ p {
 
 .content {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
     width: 100%;
@@ -117,11 +130,14 @@ p {
 
 .preview-container {
     flex: 1;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     width: 100%;
-    margin-bottom: 20px;
+    height: 300px; /* Adjust as needed */
+    position: relative;
+    margin-bottom: 100px;
 }
 
 .paper-preview {
@@ -129,7 +145,8 @@ p {
     background-color: #fff;
     border: 2px solid #a5d6a7;
     width: 100%;
-    display: flex;
+    height: 100%;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -146,39 +163,4 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-@media (max-width: 900px) {
-    .content {
-        flex-direction: column; /* Ensure column direction for narrower screens */
-    }
-    .preview-container {
-        order: 2; /* Move preview container below result */
-    }
-    #result {
-        order: 1; /* Ensure result is above preview */
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        padding: 10px; /* Reduce padding on mobile */
-    }
-    h1 {
-        font-size: 24px; /* Adjust font size for mobile */
-    }
-    h2 {
-        font-size: 20px;
-    }
-    label {
-        font-size: 14px;
-    }
-    input[type="number"], select, input[type="button"] {
-        font-size: 14px;
-        padding: 8px;
-    }
-    .selections,
-    .dimensions {
-        flex-direction: column; /* Ensure column direction for mobile */
-    }
 }

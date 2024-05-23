@@ -25,43 +25,38 @@ body {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px 40px;
     max-width: 500px;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
 }
 
 h1 {
-    color: #8e388e; /* pastel purple */
-    font-size: 36px; /* Adjust font size for better readability */
+    color: #8e388e;
+    font-size: 36px; 
 
 }
 
 h2 {
-    color: #8e388e; /* pastel purple */
+    color: #8e388e;
 }
 
 input {
     width: 50%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #8e388e; /* pastel purple */
+    border: 1px solid #8e388e;
     border-radius: 5px;
 }
 
 button {
-    background-color: #8e388e; /* pastel purple */
+    background-color: #8e388e;
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-weight: 500; /* Medium weight */
+    font-weight: var (--font-weight-medium);
     width: 50%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #8e388e; /* pastel purple */
+    border: 1px solid #8e388e;
     border-radius: 5px;
 }
 
@@ -79,9 +74,13 @@ button:hover {
     cursor: pointer;
     align-self: flex-start; /* Aligns the button to the left */
     margin-bottom: 20px;
-    font-weight: 500; /* Medium weight */
+    font-weight: var(--font-weight-medium);
 }
 
 .home-button:hover {
     background-color: #f1f1f1;
+}
+
+.hidden {
+    display: none;
 }

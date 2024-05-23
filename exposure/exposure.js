@@ -12,9 +12,32 @@ function calculateExposure() {
     // Round the new exposure time to the nearest tenth of a second
     const roundedTime = Math.round(newTime * 10) / 10;
     
+    // Calculate the difference between the new time and the initial time
+    const timeDifference = roundedTime - initialTime;
+    const roundedDifference = Math.round(timeDifference * 10) / 10;
+    
+    // Determine whether to add or remove time
+    const differenceText = roundedDifference > 0 ? 'add' : 'remove';
+    const absoluteDifference = Math.abs(roundedDifference);
+    
+    // Format the output to hide decimals if the number is an integer
+    const formatNumber = (number) => {
+        return Number.isInteger(number) ? number.toString() : number.toFixed(1);
+    };
+    
     // Display the new exposure time
-    document.getElementById('new-time').textContent = roundedTime.toFixed(1);
+    document.getElementById('new-time').textContent = formatNumber(roundedTime);
+    
+    // Display the difference in exposure time
+    document.getElementById('time-difference').textContent = `${differenceText} ${formatNumber(absoluteDifference)}`;
+    
+    // Show the new exposure time container
+    document.getElementById('new-time-container').classList.remove('hidden');
+    
+    // Show the time difference container
+    document.getElementById('time-difference-container').classList.remove('hidden');
 }
+
 
 document.getElementById('resizeForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -45,4 +68,5 @@ function calculateNewExposureTime(originalLength, originalWidth, newLength, newW
         newExposureTime: newExposureTime,
         stopsDifference: stopsDifference
     };
+    
 }

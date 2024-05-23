@@ -1,9 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
+/* :root {
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
+}
+ */
+
+
 body {
     background-color: #f5e0e0; /* pastel red background */
     color: #333;
 }
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    width: 90%; /* Adjust to 90% for better fit on mobile */
+    text-align: center;
+}
+
+
+
 
 h1 {
     color: #d9534f; /* pastel red for h1 */
@@ -25,110 +48,86 @@ h3 {
     font-weight: 400; /* Regular weight */
 }
 
-.link-container {
+.link-container-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.link-green { /* pastel green background to match page linked */
+.link-container {
+    flex: 1;
+    min-width: 300px; /* Adjust based on your design needs */
+}
+
+@media (max-width: 600px) {
+    .link-container-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.link-button {
     display: inline-block;
-    background-color: #66bb6a; 
     color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin: 0 auto;
-    width: 50%;
-    font-weight: 300; 
+    width: 80%;
+    font-weight: var(--font-weight-normal);
 }
 
-.link-green:hover {
+.link-button-green {
+    background-color: #66bb6a;
+}
+
+.link-button-green:hover {
     background-color: #388e3c;
 }
 
-.link-purple { /* pastel purple background to match page linked */
-    display: inline-block;
-    background-color: #8e388e; 
-    color: #ffffff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin: 0 auto;
-    width: 50%;
-    font-weight: 300; 
+.link-button-purple {
+    background-color: #8e388e;
 }
 
-.link-purple:hover {
-    background-color: #7b327b; 
+.link-button-purple:hover {
+    background-color: #7b327b;
 }
 
-.link-blue { /* pastel blue background to match page linked */
-    display: inline-block;
-    background-color: #4f7dd9; 
-    color: #ffffff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin: 0 auto;
-    width: 50%;
-    font-weight: 300; 
+.link-button-blue {
+    background-color: #4f7dd9;
 }
 
-.link-blue:hover {
-    background-color: #2e5ba8; 
+.link-button-blue:hover {
+    background-color: #2e5ba8;
 }
 
-.link-red { /* pastel red background to match page linked */
-    display: inline-block;
-    background-color: #d9534f; 
-    color: #ffffff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin: 0 auto;
-    width: 50%;
-    font-weight: 300; 
+.link-button-red {
+    background-color: #d9534f;
 }
 
-.link-red:hover {
-    background-color: #a63f3a; 
+.link-button-red:hover {
+    background-color: #a63f3a;
 }
 
-.link-orange { /* pastel orange background to match page linked */
-    display: inline-block;
-    background-color: #ff8a65; 
-    color: #ffffff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin: 0 auto;
-    width: 50%;
-    font-weight: 300; 
+.link-button-orange {
+    background-color: #ff8a65;
 }
 
-.link-orange:hover {
-    background-color: #e07d5f; 
+.link-button-orange:hover {
+    background-color: #e07d5f;
 }
 
-.link-yellow { /* pastel yellow background to match page linked */
-    display: inline-block;
-    background-color: #fbc02d; 
+.link-button-yellow {
+    background-color: #fbc02d;
     color: #000000;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin: 0 auto;
-    width: 50%;
-    font-weight: 300; 
 }
 
-.link-yellow:hover {
-    background-color: #d9a827; 
+.link-button-yellow:hover {
+    background-color: #d9a827;
+}
+
+.link-button-github {
+    background-color: #333333;
+    width: 20%;
 }

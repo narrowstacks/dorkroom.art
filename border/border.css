@@ -57,7 +57,7 @@ label {
 
 input[type="number"],
 select {
-    width: 80%; /* Adjusted width */
+    /* width: 80%; */
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #a5d6a7;

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Jost', sans-serif;
     background-color: #faebea;
     color: #333;
     margin: 0;
@@ -19,6 +21,7 @@ body {
 h1 {
     text-align: center;
     color: #e27d75;
+    font-weight: 700; /* Bold weight */
 }
 
 .calculators {
@@ -49,10 +52,12 @@ th, td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
+    font-weight: 400; /* Regular weight */
 }
 
 th {
     background-color: #f5c2c1;
+    font-weight: 500; /* Medium weight */
 }
 
 tr:nth-child(even) {
@@ -68,6 +73,7 @@ td input[type="text"], td input[type="number"], td select {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-weight: 300; /* Light weight */
 }
 
 td:nth-child(1) {
@@ -84,6 +90,7 @@ button {
     display: block;
     margin: 20px auto;
     font-size: 16px;
+    font-weight: 500; /* Medium weight */
 }
 
 button:hover {
@@ -107,6 +114,7 @@ button:hover {
 
 .date-input label {
     margin-right: 10px;
+    font-weight: 400; /* Regular weight */
 }
 
 .result-output {
@@ -151,6 +159,7 @@ tr:hover .delete-btn {
     text-align: left;
     font-size: 1.5em;
     margin-bottom: 10px;
+    font-weight: 600; /* Semi-bold weight */
 }
 
 .volume-mixer-container .form-group {
@@ -161,6 +170,7 @@ tr:hover .delete-btn {
 
 .volume-mixer-container .form-group label {
     margin-right: 10px;
+    font-weight: 400; /* Regular weight */
 }
 
 .volume-mixer-container .form-group input[type="number"] {
@@ -169,6 +179,7 @@ tr:hover .delete-btn {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 5px;
+    font-weight: 300; /* Light weight */
 }
 
 .volume-mixer-container .form-group span {
@@ -185,6 +196,7 @@ tr:hover .delete-btn {
     display: block;
     margin: 20px 0;
     font-size: 16px;
+    font-weight: 500; /* Medium weight */
 }
 
 .volume-mixer-container button:hover {
@@ -195,6 +207,7 @@ tr:hover .delete-btn {
     text-align: left;
     margin-bottom: 10px;
     font-size: 1em;
+    font-weight: 400; /* Regular weight */
 }
 
 .result-output p {
@@ -204,6 +217,5 @@ tr:hover .delete-btn {
 }
 
 .result-output p span {
-    font-weight: bold;
+    font-weight: 600; /* Semi-bold weight */
 }
-

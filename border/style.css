@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Jost', sans-serif;
     background-color: #e8f5e9; /* pastel green background */
     color: #333;
     margin: 0;
@@ -33,6 +35,7 @@ body {
     cursor: pointer;
     align-self: flex-start; /* Aligns the button to the left */
     margin-bottom: 20px;
+    font-weight: 500; /* Medium weight */
 }
 
 .home-button:hover {
@@ -42,12 +45,14 @@ body {
 h1 {
     color: #388e3c;
     margin-bottom: 20px;
+    font-weight: 700; /* Bold weight */
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
     color: #2e7d32;
+    font-weight: 400; /* Regular weight */
 }
 
 input[type="number"],
@@ -58,6 +63,7 @@ select {
     border: 1px solid #a5d6a7;
     border-radius: 5px;
     font-size: 16px;
+    font-weight: 300; /* Light weight */
 }
 
 .selections {
@@ -93,6 +99,7 @@ input[type="button"] {
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
+    font-weight: 600; /* Semi-bold weight */
 }
 
 input[type="button"]:hover {
@@ -102,6 +109,7 @@ input[type="button"]:hover {
 h2 {
     margin-top: 30px;
     color: #2e7d32;
+    font-weight: 500; /* Medium weight */
 }
 
 p {
@@ -109,6 +117,7 @@ p {
     padding: 10px;
     border-radius: 5px;
     font-size: 16px;
+    font-weight: 400; /* Regular weight */
 }
 
 .content {

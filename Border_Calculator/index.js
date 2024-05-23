@@ -77,7 +77,7 @@ function calculateAspectRatio(aspectRatioValue) {
         const customAspectWidth = parseFloat(document.getElementById('customAspectWidth').value);
         const customAspectHeight = parseFloat(document.getElementById('customAspectHeight').value);
         if (isNaN(customAspectWidth) || isNaN(customAspectHeight) || customAspectWidth <= 0 || customAspectHeight <= 0) {
-            displayError('Custom aspect ratio dimensions must be positive numbers');
+            displayError('error: custom aspect ratio dimensions must be positive numbers');
             return null;
         }
         return customAspectWidth / customAspectHeight;
@@ -100,12 +100,12 @@ function calculateBorders() {
     const minBorder = parseFloat(document.getElementById('minBorder').value);
 
     if (isNaN(minBorder) || minBorder <= 0) {
-        displayError('Minimum border must be a positive number');
+        displayError('error: minimum border must be a positive number');
         return;
     }
 
     if (minBorder >= Math.min(paperWidth, paperHeight) / 2) {
-        displayError('Minimum border must be less than half the shortest side of the paper');
+        displayError('error: minimum border must be less than half the shortest side of the paper');
         return;
     }
 
@@ -129,7 +129,7 @@ function calculateImageDimensions(availableWidth, availableHeight, aspectRatio) 
 }
 
 function displayResult(imageWidth, imageHeight, borderWidth, borderHeight) {
-    document.getElementById('result').innerText = `Ideal Image Dimensions: ${imageWidth.toFixed(2)} x ${imageHeight.toFixed(2)} inches\nBorder Width: ${borderWidth.toFixed(2)} inches\nBorder Height: ${borderHeight.toFixed(2)} inches`;
+    document.getElementById('result').innerText = `image dimensions: ${imageWidth.toFixed(2)} x ${imageHeight.toFixed(2)} inches\nborder Width: ${borderWidth.toFixed(2)} inches\nborder Height: ${borderHeight.toFixed(2)} inches`;
     document.getElementById('previewContainer').style.display = 'block';
 }
 

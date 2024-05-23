@@ -7,14 +7,14 @@
 </head>
 <body>
     <div class="container">
-        <a href="/" class="home-button">Return to Home</a>
-        <h1>Darkroom Print Border Calculator</h1>
+        <a href="/" class="home-button">return to home</a>
+        <h1>darkroom print border calculator</h1>
 
         <div class="content">
             <form id="borderForm">
                 <div class="selections">
                     <div class="selection">
-                        <label for="aspectRatio">Aspect Ratio:</label>
+                        <label for="aspectRatio">aspect ratio:</label>
                         <select id="aspectRatio" name="aspectRatio" onchange="updateAspectRatio()">
                             <option value="2/3">35mm (2x3)</option>
                             <option value="24/65">XPan Pano (65x24)</option>
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="selection">
-                        <label for="paperSize">Paper Size:</label>
+                        <label for="paperSize">paper size:</label>
                         <select id="paperSize" name="paperSize" onchange="updatePaperSize()">
                             <option value="4x5">4x5</option>
                             <option value="4x6 ">4x6</option>
@@ -47,26 +47,26 @@
 
                 <div id="customDimensions" class="dimensions" style="display: none;">
                     <div class="dimension">
-                        <label for="paperWidth">Paper Width (in inches):</label>
+                        <label for="paperWidth">paper Width (in inches):</label>
                         <input type="number" id="paperWidth" name="paperWidth" required oninput="setCustomSize()">
                     </div>
                     <div class="dimension">
-                        <label for="paperHeight">Paper Height (in inches):</label>
+                        <label for="paperHeight">paper height (in inches):</label>
                         <input type="number" id="paperHeight" name="paperHeight" required oninput="setCustomSize()">
                     </div>
                 </div>
                 <div id="customAspectRatio" class="dimensions" style="display: none;">
                     <div class="dimension">
-                        <label for="customAspectWidth">Custom Aspect Ratio Width:</label>
+                        <label for="customAspectWidth">custom aspect ratio width:</label>
                         <input type="number" id="customAspectWidth" name="customAspectWidth" required oninput="setCustomAspectRatio()">
                     </div>
                     <div class="dimension">
-                        <label for="customAspectHeight">Custom Aspect Ratio Height:</label>
+                        <label for="customAspectHeight">custom aspect ratio height:</label>
                         <input type="number" id="customAspectHeight" name="customAspectHeight" required oninput="setCustomAspectRatio()">
                     </div>
                 </div>
 
-                <label for="minBorder">Minimum Border Size (in inches):</label>
+                <label for="minBorder">minimum border size (in inches):</label>
                 <input type="number" id="minBorder" name="minBorder" required value= 1><br><br>
 
                 <input type="button" value="Calculate" onclick="calculateBorders()">
@@ -81,11 +81,11 @@
                     </div>
                 </div>
                 <br>
-                <input type="button" value="Change Orientation" onclick="toggleOrientation()">
+                <input type="button" value="change orientation" onclick="toggleOrientation()">
             </div>
         </div>
 
-        <h2>Result</h2>
+        <h2>result</h2>
         <p id="result"></p>
     </div>
 

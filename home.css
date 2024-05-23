@@ -18,8 +18,8 @@ h3 {
 }
 
 .custom-link {
-    color: #4f7dd9; /* pastel red for links */
-    text-decoration: #66cec7 wavy underline; /* pastel gray for underline */
+    color: #4f7dd9;
+    text-decoration: #4f7dd9 wavy underline; 
     text-decoration-skip-ink: none;
     height: .2em;
     font-weight: 400; /* Regular weight */

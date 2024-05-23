@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e8f5e9; /* pastel green background */
+    background-color: #f5e0e0; /* pastel red background */
     color: #333;
     margin: 0;
     padding: 0;
@@ -21,13 +21,25 @@ body {
 }
 
 h1 {
-    color: #388e3c;
+    color: #d9534f; /* pastel red for h1 */
     margin-bottom: 10px;
 }
 
 h2 {
-    color: #388e3c;
-    margin-bottom: 20px;
+    color: #e57373; /* pastel red for h2 */
+    margin-bottom: 5px;
+}
+
+h3 {
+    color: #f08080; /* pastel red for h3 */
+    margin-bottom: 10px;
+}
+
+.custom-link {
+    color: #d9534f; /* pastel red for links */
+    text-decoration: #66cec7 wavy underline; /* pastel gray for underline */
+    text-decoration-skip-ink: none;
+    height: .2em;
 }
 
 .link-container {
@@ -38,7 +50,7 @@ h2 {
 
 .link {
     display: inline-block;
-    background-color: #388e3c;
+    background-color: #d9534f; /* pastel red background for link */
     color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
@@ -49,5 +61,5 @@ h2 {
 }
 
 .link:hover {
-    background-color: #2e7d32;
+    background-color: #c44242; /* darker pastel red for hover effect */
 }

@@ -83,13 +83,15 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="6" style="text-align:right;"><strong>Total Estimated Cost:</strong></td>
+                    <td><button id="add-row" onclick="addRow()">Add Row</button></td>
+                    <td colspan="3"></td>
+                    <td colspan="2" style="text-align:right;"><strong>Total Estimated Cost:</strong></td>
                     <td id="total-estimated-cost" style="text-align:center;"></td>
                     <td></td>
                 </tr>
             </tfoot>
         </table>
-        <button id="add-row" onclick="addRow()">Add Row</button>
+        
         <button onclick="calculateResults()">Calculate</button>
     </div>
     <script src="/scripts/chems.js"></script>

@@ -9,6 +9,15 @@
     
     --container-background: #ffffff;
     --container-background-dark: #333333;
+
+    --p-background: #e0f2f1;
+    --p-background-dark: #262626;
+
+    --home-button: #e0f2f1;
+    --home-button-hover: #b2dfdb;
+    --home-button-dark: #262626;
+    --home-button-dark-hover: #4d4d4d;
+
     --text-color: #333333;
     --text-color-dark: #ffffff;
 
@@ -38,6 +47,8 @@
     --github-dark-hover: #cccccc;
     --github-dark-text: #333333;
     --github-dark-text-hover: #000000;
+
+
 
     --gradient-bg-fallback: #8A2387;  /* fallback for old browsers */
     --gradient-homepage-light-newer: linear-gradient(to right, #F27121, #E94057, #8A2387);
@@ -147,6 +158,7 @@ h3 {
 }
 
 .home-button {
+    background-color: var(--home-button);
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 16px;
@@ -154,6 +166,20 @@ h3 {
     align-self: flex-start; /* Aligns the button to the left */
     margin-bottom: 20px;
     font-weight: var(--font-weight-medium); 
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.home-button:hover {
+    background-color: var(--home-button-hover);
+}
+
+/* add dark mode for home button */
+body.dark-mode .home-button {
+    background-color: var(--home-button-dark);
+}
+
+body.dark-mode .home-button:hover {
+    background-color: var(--home-button-dark-hover);
 }
 
 @media (max-width: 600px) {
@@ -233,6 +259,16 @@ h3 {
 
 .link-button-yellow:hover {
     background-color: var(--yellow-hover);
+}
+
+.link-button-unavailable {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.link-button-unavailable:hover {
+    background-color: #cccccc;
 }
 
 .link-button-github {

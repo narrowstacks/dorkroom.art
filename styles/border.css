@@ -1,8 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --background-color: #e8f5e9; /* pastel green background */
+    --white: white;
+    --primary-color: #388e3c;
+    --secondary-color: #66bb6a;
+    --hover-background-color: #f1f1f1;
+    --dark-mode-background: #444444;
+    --dark-mode-text: #ffffff;
+    --dark-mode-border: #888888;
+    --dark-mode-hover-background: #666666;
+    --header-color: #388e3c;
+    --header-dark-mode-color: #a5d6a7;
+    --label-color: #2e7d32;
+    --input-border: #a5d6a7;
+    --button-background: #66bb6a;
+    --button-hover-background: #388e3c;
+    --paper-background: #fff;
+    --preview-border: #a5d6a7;
+    --preview-background: #66bb6a;
+    --p-background: #e8f5e9;
+    --p-background-dark: #444444;
+}
+
 body {
     font-family: 'Jost', sans-serif;
-    background-color: #e8f5e9; /* pastel green background */
+    background-color: var(--background-color);
 }
 
 .container {
@@ -11,32 +34,73 @@ body {
 }
 
 .home-button {
-    background-color: white;
-    color: #388e3c;
-    border: 2px solid #66bb6a;
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
 }
 
 .home-button:hover {
-    background-color: #f1f1f1;
+    background-color: var(--hover-background-color);
+}
+
+body.dark-mode .home-button {
+    background-color: var(--dark-mode-background);
+    color: var(--dark-mode-text);
+    border: 2px solid var(--dark-mode-border);
+}
+
+body.dark-mode .home-button:hover {
+    background-color: var(--dark-mode-hover-background);
+}
+
+h1, h2, label {
+    transition: color 0.5s ease; /* Add transition for smooth color change */
 }
 
 h1 {
-    color: #388e3c;
+    color: var(--header-color);
     margin-bottom: 20px;
-    font-weight: var(--font-weight-bold)
+    font-weight: var(--font-weight-bold);
+}
+
+body.dark-mode h1 {
+    color: var(--header-dark-mode-color);
+}
+
+h2 {
+    color: var(--header-color);
+    margin-top: 20px;
+    font-weight: var(--font-weight-medium);
+}
+
+body.dark-mode h2 {
+    color: var(--dark-mode-text);
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
-    color: #2e7d32;
-    font-weight: var(--font-weight-regular)
+    color: var(--label-color);
+    font-weight: var(--font-weight-regular);
+}
+
+body.dark-mode label {
+    color: var(--header-dark-mode-color);
 }
 
 input[type="number"],
 select {
-    border: 1px solid #a5d6a7;
+    border: 1px solid var(--input-border);
+    transition: border-color 0.5s ease, background-color 0.5s ease, color 0.5s ease; /* Add transition for smooth color change */
 }
+
+body.dark-mode input[type="number"],
+body.dark-mode select {
+    border: 1px solid var(--dark-mode-border);
+    background-color: var(--dark-mode-background);
+    color: var(--dark-mode-text);
+}
+
 .selections {
     display: flex;
     justify-content: space-between;
@@ -62,8 +126,8 @@ select {
 }
 
 input[type="button"] {
-    background-color: #66bb6a;
-    color: white;
+    background-color: var(--button-background);
+    color: var(--white);
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -74,13 +138,7 @@ input[type="button"] {
 }
 
 input[type="button"]:hover {
-    background-color: #388e3c;
-}
-
-h2 {
-    margin-top: 30px;
-    color: #2e7d32;
-    font-weight: var(--font-weight-medium)
+    background-color: var(--button-hover-background);
 }
 
 p {
@@ -92,7 +150,6 @@ p {
     transition: background-color 0.5s ease;
 }
 
-/* add dark mode p */
 body.dark-mode p {
     background-color: var(--p-background-dark);
 }
@@ -119,8 +176,8 @@ body.dark-mode p {
 
 .paper-preview {
     position: relative;
-    background-color: #fff;
-    border: 2px solid #a5d6a7;
+    background-color: var(--paper-background);
+    border: 2px solid var(--preview-border);
     width: 100%;
     height: 100%;
     display: inline-flex;
@@ -136,13 +193,13 @@ body.dark-mode p {
 }
 
 .print-preview {
-    background-color: #66bb6a;
+    background-color: var(--preview-background);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.link-button{
+.link-button {
     width: 20%;
 }
 

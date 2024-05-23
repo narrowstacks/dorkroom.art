@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
+/* create variables for font weights */
+:root {
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
+}
+
+
 body {
     font-family: 'Jost', sans-serif;
     background-color: #f5e0e0; /* pastel red background */
@@ -19,17 +29,19 @@ h1, h2, h3 {
 
 h1 {
     color: #d9534f; /* pastel red for h1 */
-    font-weight: 700; /* Bold weight */
+    font-weight: var(--font-weight-bold); /* Bold weight */
+    font-size: 54px; /* Adjust font size for better readability */
 }
 
 h2 {
     color: #e57373; /* pastel red for h2 */
-    font-weight: 600; /* Semi-bold weight */
+    font-weight: var(--font-weight-medium); /* Semi-bold weight */
+    font-size: 24px; /* Adjust font size for better readability */
 }
 
 h3 {
     color: #f08080; /* pastel red for h3 */
-    font-weight: 500; /* Medium weight */
+    font-weight: var(--font-weight-regular); /* Regular weight */
 }
 
 .container {

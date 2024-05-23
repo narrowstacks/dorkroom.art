@@ -35,7 +35,7 @@ body {
     cursor: pointer;
     align-self: flex-start; /* Aligns the button to the left */
     margin-bottom: 20px;
-    font-weight: 500; /* Medium weight */
+    font-weight: var(--font-weight-medium); 
 }
 
 .home-button:hover {
@@ -45,14 +45,14 @@ body {
 h1 {
     color: #388e3c;
     margin-bottom: 20px;
-    font-weight: 700; /* Bold weight */
+    font-weight: var(--font-weight-bold)
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
     color: #2e7d32;
-    font-weight: 400; /* Regular weight */
+    font-weight: var(--font-weight-regular)
 }
 
 input[type="number"],
@@ -63,7 +63,7 @@ select {
     border: 1px solid #a5d6a7;
     border-radius: 5px;
     font-size: 16px;
-    font-weight: 300; /* Light weight */
+    font-weight: var(--font-weight-light);
 }
 
 .selections {
@@ -99,7 +99,7 @@ input[type="button"] {
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
-    font-weight: 600; /* Semi-bold weight */
+    font-weight: var(--font-weight-semi-bold);
 }
 
 input[type="button"]:hover {
@@ -109,7 +109,7 @@ input[type="button"]:hover {
 h2 {
     margin-top: 30px;
     color: #2e7d32;
-    font-weight: 500; /* Medium weight */
+    font-weight: var(--font-weight-medium)
 }
 
 p {
@@ -117,7 +117,7 @@ p {
     padding: 10px;
     border-radius: 5px;
     font-size: 16px;
-    font-weight: 400; /* Regular weight */
+    font-weight: var(--font-weight-regular)
 }
 
 .content {

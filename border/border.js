@@ -55,7 +55,7 @@ function setCustomSize() {
     calculateBorders();
 }
 
-function updateAspectRatio() {
+function updateAspectRatio() { // update the aspect ratio based on the selected value
     const aspectRatio = document.getElementById('aspectRatio').value;
     const customAspectRatio = document.getElementById('customAspectRatio');
     if (aspectRatio === "Custom") {
@@ -66,13 +66,13 @@ function updateAspectRatio() {
     }
 }
 
-function setCustomAspectRatio() {
+function setCustomAspectRatio() { // set the aspect ratio to custom
     document.getElementById('aspectRatio').value = "Custom";
     document.getElementById('customAspectRatio').style.display = "flex";
     calculateBorders();
 }
 
-function calculateAspectRatio(aspectRatioValue) {
+function calculateAspectRatio(aspectRatioValue) { // calculate the aspect ratio based on the selected value
     if (aspectRatioValue === "Custom") {
         const customAspectWidth = parseFloat(document.getElementById('customAspectWidth').value);
         const customAspectHeight = parseFloat(document.getElementById('customAspectHeight').value);
@@ -85,7 +85,7 @@ function calculateAspectRatio(aspectRatioValue) {
     return eval(aspectRatioValue);
 }
 
-function displayError(message) {
+function displayError(message) { // display an error message
     document.getElementById('result').innerText = message;
     document.getElementById('previewContainer').style.display = 'none';
 }
@@ -113,6 +113,7 @@ function calculateBorders() {
     const availableHeight = paperHeight - 2 * minBorder;
 
     const [imageWidth, imageHeight] = calculateImageDimensions(availableWidth, availableHeight, aspectRatio);
+    // if roundUp is true, round up the border dimensions to the next highest quarter inch
     const borderWidth = (paperWidth - imageWidth) / 2;
     const borderHeight = (paperHeight - imageHeight) / 2;
 
@@ -120,7 +121,7 @@ function calculateBorders() {
     updatePreview(paperWidth, paperHeight, imageWidth, imageHeight);
 }
 
-function calculateImageDimensions(availableWidth, availableHeight, aspectRatio) {
+function calculateImageDimensions(availableWidth, availableHeight, aspectRatio) { // calculate the dimensions of the image and the borders
     if (availableWidth / aspectRatio <= availableHeight) {
         return [availableWidth, availableWidth / aspectRatio];
     } else {
@@ -133,7 +134,7 @@ function displayResult(imageWidth, imageHeight, borderWidth, borderHeight) {
     document.getElementById('previewContainer').style.display = 'block';
 }
 
-function updatePreview(paperWidth = null, paperHeight = null, imageWidth = null, imageHeight = null) {
+function updatePreview(paperWidth = null, paperHeight = null, imageWidth = null, imageHeight = null) { // update the preview of the paper and the image
     const paperPreview = document.getElementById('paperPreview');
     const printPreviewContainer = document.getElementById('printPreviewContainer');
     const printPreview = document.getElementById('printPreview');
@@ -170,7 +171,15 @@ function updatePreview(paperWidth = null, paperHeight = null, imageWidth = null,
     }
 }
 
-function toggleOrientation() {
+function toggleOrientation() { // switch between horizontal and vertical preview
     previewOrientation = previewOrientation === 'horizontal' ? 'vertical' : 'horizontal';
+    calculateBorders();
+}
+
+function flipRatio() { // swap width and height
+    const paperWidth = document.getElementById('paperWidth').value;
+    document.getElementById('paperWidth').value = document.getElementById('paperHeight').value;
+    document.getElementById('paperHeight').value = paperWidth;
+    toggleOrientation()
     calculateBorders();
 }

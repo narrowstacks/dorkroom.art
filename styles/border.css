@@ -1,21 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
-/* create variables for colors */
-:root {
-    --pastel-green-body-background: #e8f5e9;
-    --pastel-green-button: #66bb6a;
-    --pastel-green-button-text: #333;
-    --pastel-green-button-border: #66bb6a;
-}
-
 body {
     font-family: 'Jost', sans-serif;
     background-color: #e8f5e9; /* pastel green background */
 }
 
 .container {
-    max-width: 800px; /* Increased max-width to accommodate both form and preview */
-    width: 100%;
+    max-width: 900px; /* Increased max-width to accommodate both form and preview */
+    width: 90%;
 }
 
 .home-button {
@@ -108,7 +100,7 @@ p {
 }
 
 .preview-container {
-    flex: 1;
+    flex: 2;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -142,4 +134,20 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.link-button{
+    width: 20%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-container .link-button {
+    width: auto;
+    padding: 10px 20px;
 }

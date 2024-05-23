@@ -21,8 +21,8 @@
     --pastel-red-button-border: #f08080;
     --green: #66bb6a;
     --green-hover: #388e3c;
-    --purple: #8e388e; 
-    --purple-hover: #7b327b;
+    --purple: #a53fa5; 
+    --purple-hover: #4f194f;
     --blue: #4f7dd9;
     --blue-hover: #2e5ba8;
     --red: #d9534f;
@@ -195,11 +195,11 @@ h3 {
 }
 
 .link-button-purple {
-    background-color: #8e388e;
+    background-color: var(--purple);
 }
 
 .link-button-purple:hover {
-    background-color: #7b327b;
+    background-color: var(--purple-hover);
 }
 
 .link-button-blue {

@@ -39,29 +39,13 @@ h2 {
 }
 
 input {
-    width: 50%;
+    width: 20%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #8e388e;
     border-radius: 5px;
 }
 
-button {
-    background-color: #8e388e;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: var (--font-weight-medium);
-    width: 50%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #8e388e;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #7b327b; /* darker pastel purple */
-}
 
 .home-button {
     background-color: white;

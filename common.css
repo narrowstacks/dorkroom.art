@@ -1,19 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
-/* create variables for font weights */
 :root {
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-semi-bold: 600;
     --font-weight-bold: 700;
-}
+    
+    --container-background: #ffffff;
+    --container-background-dark: #333333;
+    --text-color: #333333;
+    --text-color-dark: #ffffff;
 
+    --pastel-red-background: #f5e0e0;
+    --pastel-red-h1: #d9534f;
+    --pastel-red-h2: #e57373;
+    --pastel-red-h3: #f08080;
+    --pastel-red-button: #f08080;
+    --pastel-red-button-text: #333;
+    --pastel-red-button-border: #f08080;
+    --green: #66bb6a;
+    --green-hover: #388e3c;
+    --purple: #8e388e; 
+    --purple-hover: #7b327b;
+    --blue: #4f7dd9;
+    --blue-hover: #2e5ba8;
+    --red: #d9534f;
+    --red-hover: #a63f3a;
+    --orange: #ff8a65;
+    --orange-hover: #e07d5f;
+    --yellow: #fbc02d;
+    --yellow-text: #000000;
+    --yellow-hover: #d9a827;
+    --github: #333333;
+    --github-hover: #666666;
+    --github-dark: #ffffff;
+    --github-dark-hover: #cccccc;
+    --github-dark-text: #333333;
+    --github-dark-text-hover: #000000;
+
+    --gradient-bg-fallback: #8A2387;  /* fallback for old browsers */
+    --gradient-homepage-light-newer: linear-gradient(to right, #F27121, #E94057, #8A2387);
+    --gradient-homepage-dark-newer: linear-gradient(to right, #000428, #004e92);
+}
 
 body {
     font-family: 'Jost', sans-serif;
-    background-color: #f5e0e0; /* pastel red background */
-    color: #333;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     display: flex;
@@ -21,54 +54,106 @@ body {
     align-items: center;
     min-height: 100vh;
     flex-direction: column; /* Change to column for better stacking on mobile */
+    position: relative; /* Add this to position the pseudo-element */
+    overflow: hidden; /* Add this to hide overflow */
+    background: var(--gradient-homepage-light-newer);
+    transition: background 0.5s ease, color 0.5s ease; /* Add transition for smooth color change */
 }
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--gradient-homepage-dark-newer);
+    z-index: -1;
+    transition: opacity 0.5s linear; /* Add transition for smooth opacity change */
+    opacity: 0;
+}
+
+body.dark-mode::before {
+    opacity: 1;
+}
+
+body.dark-mode {
+    color: var(--text-color-dark);
+}
 
 .container {
-    background-color: #ffffff;
+    background-color: var(--container-background);
+    transition: background-color 0.5s ease; /* Add transition for smooth background color change */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px 40px;
-    max-width: 500px;
-    width: 90%; /* Adjust to 90% for better fit on mobile */
+    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+input[type="number"],
+select {
+    /* width: 80%; */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #a5d6a7;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: var(--font-weight-light);
+}
+
+body.dark-mode .container {
+    background-color: var(--container-background-dark);
+}
 
 h1, h2, h3 {
     margin-bottom: 10px;
+    transition: color 0.5s ease; /* Add transition for smooth color change */
 }
 
 h1 {
-    color: #d9534f; /* pastel red for h1 */
     font-weight: var(--font-weight-bold); /* Bold weight */
     font-size: 54px; /* Adjust font size for better readability */
 }
 
 h2 {
-    color: #e57373; /* pastel red for h2 */
     font-weight: var(--font-weight-medium); /* Semi-bold weight */
     font-size: 24px; /* Adjust font size for better readability */
 }
 
 h3 {
-    color: #f08080; /* pastel red for h3 */
     font-weight: var(--font-weight-regular); /* Regular weight */
 }
 
+#toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    transform: scale(1.2);
+}
+
 .home-button {
-    background-color: white;
-    color: #388e3c;
-    border: 2px solid #66bb6a;
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    align-self: flex-start; /* Aligns the button to the left */
     margin-bottom: 20px;
-    font-weight: 500; /* Medium weight */
+    font-weight: var(--font-weight-medium); 
 }
 
 @media (max-width: 600px) {
@@ -84,4 +169,91 @@ h3 {
     h3 {
         font-size: 18px;
     }
+}
+
+.link-button {
+    display: inline-block;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add color transition */
+    margin: 0 auto;
+    width: 60%;
+    font-weight: var(--font-weight-normal);
+    margin-bottom: 5px;
+}
+
+.link-button-green {
+    background-color: var(--green);
+}
+
+.link-button-green:hover {
+    background-color: var(--green-hover);
+}
+
+.link-button-purple {
+    background-color: #8e388e;
+}
+
+.link-button-purple:hover {
+    background-color: #7b327b;
+}
+
+.link-button-blue {
+    background-color: var(--blue);
+}
+
+.link-button-blue:hover {
+    background-color: var(--blue-hover);
+}
+
+.link-button-red {
+    background-color: var(--red);
+}
+
+.link-button-red:hover {
+    background-color: var(--red-hover);
+}
+
+.link-button-orange {
+    background-color: var(--orange);
+}
+
+.link-button-orange:hover {
+    background-color: var(--orange-hover);
+}
+
+.link-button-yellow {
+    background-color: var(--yellow);
+    color: var(--yellow-text);
+}
+
+.link-button-yellow:hover {
+    background-color: var(--yellow-hover);
+}
+
+.link-button-github {
+    background-color: var(--github);
+    color: #ffffff;
+    width: 40%;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add color transition */
+}
+
+.link-button-github:hover {
+    background-color: var(--github-hover);
+}
+
+body.dark-mode .link-button-github {
+    background-color: var(--github-dark);
+    color: var(--github-dark-text);
+}
+
+body.dark-mode .link-button-github:hover {
+    background-color: var(--github-dark-hover);
+    color: var(--github-dark-text-hover);
+}
+
+.hidden {
+    display: none;
 }

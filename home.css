@@ -1,18 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
-/* :root {
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-    --font-weight-semi-bold: 600;
-    --font-weight-bold: 700;
-}
- */
-
-
 body {
-    background-color: #f5e0e0; /* pastel red background */
-    color: #333;
+    background: #8A2387;  /* fallback for old browsers */
+    background: var(--gradient-homepage-light-older);
+    background: var(--gradient-homepage-light-newer);
 }
 
 .container {
@@ -25,19 +16,20 @@ body {
     text-align: center;
 }
 
-
-
-
 h1 {
     color: #d9534f; /* pastel red for h1 */
+    margin-bottom: 0px;
 }
 
 h2 {
     color: #e57373; /* pastel red for h2 */
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
 h3 {
     color: #f08080; /* pastel red for h3 */
+    margin-top: 0px;
 }
 
 .custom-link {
@@ -52,11 +44,12 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    padding: 20px 40px;
 }
 
 .link-container {
     flex: 1;
-    min-width: 300px; /* Adjust based on your design needs */
+    min-width: 300px;
 }
 
 @media (max-width: 600px) {
@@ -74,16 +67,21 @@ h3 {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin: 0 auto;
-    width: 80%;
+    width: 60%;
     font-weight: var(--font-weight-normal);
+    margin-bottom: 5px;
+}
+
+.hidden {
+    display: none;
 }
 
 .link-button-green {
-    background-color: #66bb6a;
+    background-color: var(--green);
 }
 
 .link-button-green:hover {
-    background-color: #388e3c;
+    background-color: var(--green-hover);
 }
 
 .link-button-purple {
@@ -95,39 +93,43 @@ h3 {
 }
 
 .link-button-blue {
-    background-color: #4f7dd9;
+    background-color: var(--blue);
 }
 
 .link-button-blue:hover {
-    background-color: #2e5ba8;
+    background-color: var(--blue-hover);
 }
 
 .link-button-red {
-    background-color: #d9534f;
+    background-color: var(--red);
 }
 
 .link-button-red:hover {
-    background-color: #a63f3a;
+    background-color: var(--red-hover);
 }
 
 .link-button-orange {
-    background-color: #ff8a65;
+    background-color: var(--orange);
 }
 
 .link-button-orange:hover {
-    background-color: #e07d5f;
+    background-color: var(--orange-hover);
 }
 
 .link-button-yellow {
-    background-color: #fbc02d;
-    color: #000000;
+    background-color: var(--yellow);
+    color: var(--yellow-text);
 }
 
 .link-button-yellow:hover {
-    background-color: #d9a827;
+    background-color: var(--yellow-hover);
 }
 
 .link-button-github {
-    background-color: #333333;
-    width: 20%;
+    background-color: var(--github);
+    width: 40%;
+}
+
+.link-button-github:hover {
+    background-color: var(--github-hover);
 }

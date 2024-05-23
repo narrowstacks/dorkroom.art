@@ -22,10 +22,8 @@ body {
 }
 
 .container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 500px;
+    width: 100%;
 
 }
 
@@ -37,6 +35,7 @@ h1 {
 
 h2 {
     color: #8e388e;
+    margin: 2px;
 }
 
 input {
@@ -81,6 +80,3 @@ button:hover {
     background-color: #f1f1f1;
 }
 
-.hidden {
-    display: none;
-}

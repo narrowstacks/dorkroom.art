@@ -64,6 +64,11 @@ function calculateNewExposureTime(originalLength, originalWidth, newLength, newW
     const newExposureTime = originalTime * multiplierFactor;
     const stopsDifference = Math.log2(multiplierFactor);
 
+    // throw an error if change in stops is blank
+    if (isNaN(stopsDifference)) {
+        throw new Error('Change in stops cannot be blank');
+    }
+
     return {
         newExposureTime: newExposureTime,
         stopsDifference: stopsDifference

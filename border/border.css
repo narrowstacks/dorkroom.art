@@ -1,34 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
+/* create variables for colors */
+:root {
+    --pastel-green-body-background: #e8f5e9;
+    --pastel-green-button: #66bb6a;
+    --pastel-green-button-text: #333;
+    --pastel-green-button-border: #66bb6a;
+}
+
 body {
     font-family: 'Jost', sans-serif;
     background-color: #e8f5e9; /* pastel green background */
 }
 
 .container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px 40px;
-    max-width: 800px;
+    max-width: 800px; /* Increased max-width to accommodate both form and preview */
     width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .home-button {
     background-color: white;
     color: #388e3c;
     border: 2px solid #66bb6a;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    align-self: flex-start; /* Aligns the button to the left */
-    margin-bottom: 20px;
-    font-weight: var(--font-weight-medium); 
 }
 
 .home-button:hover {
@@ -50,15 +43,8 @@ label {
 
 input[type="number"],
 select {
-    /* width: 80%; */
-    padding: 10px;
-    margin: 10px 0;
     border: 1px solid #a5d6a7;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: var(--font-weight-light);
 }
-
 .selections {
     display: flex;
     justify-content: space-between;

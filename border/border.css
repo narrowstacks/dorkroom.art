@@ -67,13 +67,13 @@ select {
 
 .selections {
     display: flex;
-    flex-direction: column; /* Change to column for better stacking on mobile */
+    flex-direction: row;
     gap: 10px;
 }
 
 .dimensions {
     display: flex;
-    flex-direction: column; /* Change to column for better stacking on mobile */
+    flex-direction: row;
     gap: 10px;
 }
 
@@ -109,8 +109,8 @@ p {
 
 .content {
     display: flex;
-    flex-direction: column; /* Change to column for better stacking on mobile */
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     gap: 20px;
     width: 100%;
 }
@@ -148,6 +148,18 @@ p {
     align-items: center;
 }
 
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column; /* Ensure column direction for narrower screens */
+    }
+    .preview-container {
+        order: 2; /* Move preview container below result */
+    }
+    #result {
+        order: 1; /* Ensure result is above preview */
+    }
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 10px; /* Reduce padding on mobile */
@@ -165,13 +177,8 @@ p {
         font-size: 14px;
         padding: 8px;
     }
-    .content {
+    .selections,
+    .dimensions {
         flex-direction: column; /* Ensure column direction for mobile */
-    }
-    .preview-container {
-        order: 2; /* Move preview container below result */
-    }
-    #result {
-        order: 1; /* Ensure result is above preview */
     }
 }

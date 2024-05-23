@@ -22,6 +22,9 @@
         
         <h1>print resizing calculator</h1>
         <form id="resizeForm">
+            <label for="originalTime">original exposure time (seconds):</label>
+            <input type="number" id="originalTime" required>
+            <br>
             <label for="originalLength">original length (inches):</label>
             <input type="number" id="originalLength" required>
             <br>
@@ -31,11 +34,10 @@
             <label for="newLength">new length (inches):</label>
             <input type="number" id="newLength" required>
             <br>
-            <label for="newWidth">new Wwdth (inches):</label>
+            <label for="newWidth">new width (inches):</label>
             <input type="number" id="newWidth" required>
             <br>
-            <label for="originalTime">original exposure time (seconds):</label>
-            <input type="number" id="originalTime" required>
+
 
             <button type="submit">calculate</button>
         </form>

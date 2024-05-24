@@ -32,6 +32,9 @@ h1 {
     font-size: 36px; 
 
 }
+body.dark-mode h1 {
+    color: #a5d6a7;
+}
 
 h2 {
     color: #8e388e;
@@ -44,6 +47,10 @@ input {
     margin: 10px 0;
     border: 1px solid #8e388e;
     border-radius: 5px;
+}
+
+body.dark-mode label {
+    color: #a5d6a7;
 }
 
 

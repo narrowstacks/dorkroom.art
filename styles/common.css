@@ -215,7 +215,7 @@ body.dark-mode .home-button:hover {
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease; /* Add color transition */
     margin: 0 auto;
-    width: 60%;
+    width: 50%;
     font-weight: var(--font-weight-normal);
     margin-bottom: 5px;
 }
@@ -285,13 +285,20 @@ body.dark-mode .home-button:hover {
     width: 40%;
     transition: background-color 0.3s ease, color 0.3s ease;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Ensure items are centered vertically */
+    justify-content: center; /* Center items horizontally */
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: var(--font-weight-normal);
     margin: 0 auto;
+}
+
+.github-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* Adjust the margin to ensure spacing */
+    transition: opacity 0.5s ease; /* Add transition for opacity */
 }
 
 
@@ -307,14 +314,6 @@ body.dark-mode .link-button-github {
 body.dark-mode .link-button-github:hover {
     background-color: var(--github-dark-hover);
     color: var(--github-dark-text-hover);
-}
-
-.github-logo{
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    align-items: center;
-    transition: opacity 0.5s ease; /* Add transition for opacity */
 }
 
 

@@ -72,11 +72,21 @@ function setCustomSize() {
 
 function updateAspectRatio() {
     const aspectRatioElement = document.getElementById('aspectRatio');
+    const customAspectRatio = document.getElementById('customAspectRatio');
+
+    if (aspectRatioElement.value === "Custom") {
+        customAspectRatio.style.display = "flex";
+        
+        // Set default values
+        document.getElementById('customAspectWidth').value = "4";
+        document.getElementById('customAspectHeight').value = "3";
+    } else {
+        customAspectRatio.style.display = "none";
+    }
+
     aspectRatio = calculateAspectRatio(aspectRatioElement.value);
     calculateBorders();  // Ensure borders are recalculated with the updated aspect ratio
 }
-
-
 function setCustomAspectRatio() {
     document.getElementById('aspectRatio').value = "Custom";
     document.getElementById('customAspectRatio').style.display = "flex";

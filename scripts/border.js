@@ -30,13 +30,13 @@ function toggleOffsets() {
 
 function getPaperDimensions(paperSize) {
     const dimensions = {
-        "4x5": [4, 5],
-        "4x6": [4, 6],
-        "5x7": [5, 7],
-        "8x10": [8, 10],
-        "11x14": [11, 14],
-        "16x20": [16, 20],
-        "20x24": [20, 24],
+        "4x5": [5, 4],
+        "4x6": [6, 5],
+        "5x7": [7, 5],
+        "8x10": [10, 8],
+        "11x14": [14, 11],
+        "16x20": [20, 16],
+        "20x24": [24, 20],
         "Custom": [null, null]
     };
     return dimensions[paperSize];
@@ -143,6 +143,37 @@ function calculateBorders() {
     updatePreview(paperWidth, paperHeight, imageWidth, imageHeight);
 }
 
+function calcImageAndBorderSizes(paperSize, printAspectRatio, minBorder, heightOff = 0, widthOff = 0) {
+    const [paperW, paperH] = paperSize.split('x').map(Number);
+    const [aspectW, aspectH] = printAspectRatio.split(':').map(Number);
+    
+    let imgW, imgH;
+
+    // Calculate the maximum possible width and height of the image while maintaining the aspect ratio
+    if ((paperW - 2 * minBorder) / aspectW < (paperH - 2 * minBorder) / aspectH) {
+        imgW = paperW - 2 * minBorder;
+        imgH = imgW * aspectH / aspectW;
+    } else {
+        imgH = paperH - 2 * minBorder;
+        imgW = imgH * aspectW / aspectH;
+    }
+    
+    // Set the easel blade positions to match the image size exactly
+    const leftBlade = imgW - widthOff;
+    const rightBlade = imgW + widthOff;
+    const topBlade = imgH - heightOff;
+    const bottomBlade = imgH + heightOff;
+    
+    return {
+        imageSize: `${imgW.toFixed(1)}x${imgH.toFixed(1)}in`,
+        leftBlade: `${leftBlade.toFixed(1)}in`,
+        rightBlade: `${rightBlade.toFixed(1)}in`,
+        topBlade: `${topBlade.toFixed(1)}in`,
+        bottomBlade: `${bottomBlade.toFixed(1)}in`
+    };
+}
+
+
 function calculateImageDimensions(availableWidth, availableHeight, aspectRatio) {
     if (availableWidth / aspectRatio <= availableHeight) {
         return [availableWidth, availableWidth / aspectRatio];
@@ -152,11 +183,13 @@ function calculateImageDimensions(availableWidth, availableHeight, aspectRatio) 
 }
 
 function displayResult(imageWidth, imageHeight, borderWidth, borderHeight) {
+    // convert calcIma
     document.getElementById('result').innerText = `image dimensions: ${imageWidth.toFixed(2)} x ${imageHeight.toFixed(2)} inches\nborder height: ${borderWidth.toFixed(2)} inches\nborder width: ${borderHeight.toFixed(2)} inches`;
     document.getElementById('previewContainer').style.display = 'block';
 }
 
 function updatePreview(paperWidth = null, paperHeight = null, imageWidth = null, imageHeight = null) {
+    
     const paperPreview = document.getElementById('paperPreview');
     const printPreviewContainer = document.getElementById('printPreviewContainer');
     const printPreview = document.getElementById('printPreview');
@@ -170,6 +203,7 @@ function updatePreview(paperWidth = null, paperHeight = null, imageWidth = null,
 
     const maxWidth = paperPreview.parentElement.clientWidth;
     const maxHeight = paperPreview.parentElement.clientHeight;
+    
 
     const scale = Math.min(maxWidth / previewWidth, maxHeight / previewHeight);
 

@@ -5,6 +5,12 @@ console.log("test")
 document.addEventListener("DOMContentLoaded", initialize);
 
 function initialize() {
+    aspectRatio = calculateAspectRatio(document.getElementById('aspectRatio').value);
+    paperSize = document.getElementById('paperSize').value;
+    paperDimensions = getPaperDimensions(paperSize);
+    paperWidth = 0;
+    paperHeight = 0;
+
     document.getElementById('aspectRatio').selectedIndex = 0;
     document.getElementById('paperSize').selectedIndex = 3;
     updatePaperSize();
@@ -49,6 +55,8 @@ function updatePaperSize() {
 
     if (paperSize === "Custom") {
         customDimensions.style.display = "flex";
+        document.getElementById('paperWidth').value = '';
+        document.getElementById('paperHeight').value = '';
     } else {
         customDimensions.style.display = "none";
         document.getElementById('paperWidth').value = dimensions[0];
@@ -56,7 +64,6 @@ function updatePaperSize() {
         calculateBorders();
     }
 }
-
 function setCustomSize() {
     document.getElementById('paperSize').value = "Custom";
     document.getElementById('customDimensions').style.display = "flex";
@@ -64,15 +71,11 @@ function setCustomSize() {
 }
 
 function updateAspectRatio() {
-    const aspectRatio = document.getElementById('aspectRatio').value;
-    const customAspectRatio = document.getElementById('customAspectRatio');
-    if (aspectRatio === "Custom") {
-        customAspectRatio.style.display = "flex";
-    } else {
-        customAspectRatio.style.display = "none";
-        calculateBorders();
-    }
+    const aspectRatioElement = document.getElementById('aspectRatio');
+    aspectRatio = calculateAspectRatio(aspectRatioElement.value);
+    calculateBorders();  // Ensure borders are recalculated with the updated aspect ratio
 }
+
 
 function setCustomAspectRatio() {
     document.getElementById('aspectRatio').value = "Custom";
@@ -82,13 +85,13 @@ function setCustomAspectRatio() {
 
 function calculateAspectRatio(aspectRatioValue) {
     if (aspectRatioValue === "Custom") {
-        const customAspectWidth = parseFloat(document.getElementById('customAspectWidth').value);
-        const customAspectHeight = parseFloat(document.getElementById('customAspectHeight').value);
-        if (isNaN(customAspectWidth) || isNaN(customAspectHeight) || customAspectWidth <= 0 || customAspectHeight <= 0) {
+        const customWidth = parseFloat(document.getElementById('customAspectWidth').value);
+        const customHeight = parseFloat(document.getElementById('customAspectHeight').value);
+        if (isNaN(customWidth) || isNaN(customHeight) || customWidth <= 0 || customHeight <= 0) {
             displayError('error: custom aspect ratio dimensions must be positive numbers');
             return null;
         }
-        return customAspectWidth / customAspectHeight;
+        return customWidth / customHeight;
     }
     return eval(aspectRatioValue);
 }
@@ -142,7 +145,6 @@ function calculateBorders() {
     displayResult(imageWidth, imageHeight, borderWidth, borderHeight);
     updatePreview(paperWidth, paperHeight, imageWidth, imageHeight);
 }
-
 function calcImageAndBorderSizes(paperSize, printAspectRatio, minBorder, heightOff = 0, widthOff = 0) {
     const [paperW, paperH] = paperSize.split('x').map(Number);
     const [aspectW, aspectH] = printAspectRatio.split(':').map(Number);
@@ -184,12 +186,11 @@ function calculateImageDimensions(availableWidth, availableHeight, aspectRatio) 
 
 function displayResult(imageWidth, imageHeight, borderWidth, borderHeight) {
     // convert calcIma
-    document.getElementById('result').innerText = `image dimensions: ${imageWidth.toFixed(2)} x ${imageHeight.toFixed(2)} inches\nborder height: ${borderWidth.toFixed(2)} inches\nborder width: ${borderHeight.toFixed(2)} inches`;
+    document.getElementById('result').innerText = `image dimensions: ${imageHeight.toFixed(2)} x ${imageWidth.toFixed(2)} inches\nborder height: ${borderHeight.toFixed(2)} inches\nborder width: ${borderWidth.toFixed(2)} inches`;
     document.getElementById('previewContainer').style.display = 'block';
 }
 
 function updatePreview(paperWidth = null, paperHeight = null, imageWidth = null, imageHeight = null) {
-    
     const paperPreview = document.getElementById('paperPreview');
     const printPreviewContainer = document.getElementById('printPreviewContainer');
     const printPreview = document.getElementById('printPreview');
@@ -197,13 +198,12 @@ function updatePreview(paperWidth = null, paperHeight = null, imageWidth = null,
     paperWidth = paperWidth !== null ? paperWidth : parseFloat(document.getElementById('paperWidth').value);
     paperHeight = paperHeight !== null ? paperHeight : parseFloat(document.getElementById('paperHeight').value);
 
-    const [previewWidth, previewHeight] = previewOrientation === 'horizontal'
+    const [previewWidth, previewHeight] = previewOrientation === 'vertical'
         ? [paperHeight, paperWidth]
         : [paperWidth, paperHeight];
 
     const maxWidth = paperPreview.parentElement.clientWidth;
     const maxHeight = paperPreview.parentElement.clientHeight;
-    
 
     const scale = Math.min(maxWidth / previewWidth, maxHeight / previewHeight);
 
@@ -211,7 +211,7 @@ function updatePreview(paperWidth = null, paperHeight = null, imageWidth = null,
     paperPreview.style.height = `${previewHeight * scale}px`;
 
     if (imageWidth !== null && imageHeight !== null) {
-        const [printPreviewWidth, printPreviewHeight] = previewOrientation === 'horizontal'
+        const [printPreviewWidth, printPreviewHeight] = previewOrientation === 'vertical'
             ? [imageHeight, imageWidth]
             : [imageWidth, imageHeight];
 
@@ -220,7 +220,6 @@ function updatePreview(paperWidth = null, paperHeight = null, imageWidth = null,
         printPreview.style.width = '100%';
         printPreview.style.height = '100%';
 
-        // Apply offsets if enabled
         const enableOffset = document.getElementById('enableOffset').checked;
         if (enableOffset) {
             const horizontalOffset = parseFloat(document.getElementById('horizontalOffset').value) * scale;
@@ -255,7 +254,6 @@ function flipRatio() {
     document.getElementById('paperWidth').value = document.getElementById('paperHeight').value;
     document.getElementById('paperHeight').value = paperWidth;
 
-    // Swap the offsets
     const horizontalOffset = document.getElementById('horizontalOffset').value;
     document.getElementById('horizontalOffset').value = document.getElementById('verticalOffset').value;
     document.getElementById('verticalOffset').value = horizontalOffset;

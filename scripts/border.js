@@ -1,5 +1,9 @@
 let previewOrientation = 'horizontal';
 
+let storedOffsets = { horizontal: 0, vertical: 0 };
+let offsetsInitialized = false; // Flag to track if offsets have been initialized
+
+
 console.log("test")
 
 document.addEventListener("DOMContentLoaded", initialize);
@@ -29,10 +33,35 @@ function addEventListeners() {
     document.getElementById('enableOffset').addEventListener('change', toggleOffsets);
 }
 
+
+
 function toggleOffsets() {
+    const enableOffset = document.getElementById('enableOffset').checked;
     const offsetInputs = document.getElementById('offsetInputs');
-    offsetInputs.style.display = document.getElementById('enableOffset').checked ? 'block' : 'none';
+
+    if (enableOffset) {
+        // Only set defaults the first time offsets are enabled
+        if (!offsetsInitialized) {
+            document.getElementById('horizontalOffset').value = 0;
+            document.getElementById('verticalOffset').value = 0;
+            offsetsInitialized = true; // Mark that the offsets have been initialized
+        } else {
+            // Restore previously stored offsets
+            document.getElementById('horizontalOffset').value = storedOffsets.horizontal;
+            document.getElementById('verticalOffset').value = storedOffsets.vertical;
+        }
+    } else {
+        // Store current offset values
+        storedOffsets.horizontal = document.getElementById('horizontalOffset').value;
+        storedOffsets.vertical = document.getElementById('verticalOffset').value;
+    }
+
+    offsetInputs.style.display = enableOffset ? 'block' : 'none';
+
+    // Recalculate borders to reflect the current state of offsets
+    calculateBorders();
 }
+
 
 function getPaperDimensions(paperSize) {
     const dimensions = {
@@ -139,51 +168,34 @@ function calculateBorders() {
     let borderHeight = (paperHeight - imageHeight) / 2;    
 
     const enableOffset = document.getElementById('enableOffset').checked;
+    let horizontalOffset = 0;
+    let verticalOffset = 0;
+
     if (enableOffset) {
-        const horizontalOffset = parseFloat(document.getElementById('horizontalOffset').value);
-        const verticalOffset = parseFloat(document.getElementById('verticalOffset').value);
+        horizontalOffset = parseFloat(document.getElementById('horizontalOffset').value);
+        verticalOffset = parseFloat(document.getElementById('verticalOffset').value);
 
         borderWidth -= horizontalOffset;
         borderHeight -= verticalOffset;
 
-        if (borderWidth < 0 || borderHeight < 0) {
-            displayError('error: offsets result in negative borders');
+        // Additional check to ensure that the image does not exceed the paper boundaries on the opposite sides
+        if (borderWidth + imageWidth > paperWidth || borderHeight + imageHeight > paperHeight || borderWidth < 0 || borderHeight < 0) {
+            displayError('error: offsets result in the image exceeding the paper boundaries');
             return;
         }
     }
 
-    displayResult(imageWidth, imageHeight, borderWidth, borderHeight);
+    // Calculate easel blade positions
+    const leftBlade = imageWidth + horizontalOffset;
+    const rightBlade = imageWidth - horizontalOffset;
+    const topBlade = imageHeight - verticalOffset;
+    const bottomBlade = imageHeight - verticalOffset
+
+    displayResult(imageWidth, imageHeight, borderWidth, borderHeight, leftBlade, rightBlade, topBlade, bottomBlade);
     updatePreview(paperWidth, paperHeight, imageWidth, imageHeight);
 }
-function calcImageAndBorderSizes(paperSize, printAspectRatio, minBorder, heightOff = 0, widthOff = 0) {
-    const [paperW, paperH] = paperSize.split('x').map(Number);
-    const [aspectW, aspectH] = printAspectRatio.split(':').map(Number);
-    
-    let imgW, imgH;
 
-    // Calculate the maximum possible width and height of the image while maintaining the aspect ratio
-    if ((paperW - 2 * minBorder) / aspectW < (paperH - 2 * minBorder) / aspectH) {
-        imgW = paperW - 2 * minBorder;
-        imgH = imgW * aspectH / aspectW;
-    } else {
-        imgH = paperH - 2 * minBorder;
-        imgW = imgH * aspectW / aspectH;
-    }
-    
-    // Set the easel blade positions to match the image size exactly
-    const leftBlade = imgW - widthOff;
-    const rightBlade = imgW + widthOff;
-    const topBlade = imgH - heightOff;
-    const bottomBlade = imgH + heightOff;
-    
-    return {
-        imageSize: `${imgW.toFixed(1)}x${imgH.toFixed(1)}in`,
-        leftBlade: `${leftBlade.toFixed(1)}in`,
-        rightBlade: `${rightBlade.toFixed(1)}in`,
-        topBlade: `${topBlade.toFixed(1)}in`,
-        bottomBlade: `${bottomBlade.toFixed(1)}in`
-    };
-}
+
 
 
 function calculateImageDimensions(availableWidth, availableHeight, aspectRatio) {
@@ -194,9 +206,16 @@ function calculateImageDimensions(availableWidth, availableHeight, aspectRatio) 
     }
 }
 
-function displayResult(imageWidth, imageHeight, borderWidth, borderHeight) {
-    // convert calcIma
-    document.getElementById('result').innerText = `image dimensions: ${imageHeight.toFixed(2)} x ${imageWidth.toFixed(2)} inches\nborder height: ${borderHeight.toFixed(2)} inches\nborder width: ${borderWidth.toFixed(2)} inches`;
+function displayResult(imageWidth, imageHeight, borderWidth, borderHeight, leftBlade, rightBlade, topBlade, bottomBlade) {
+    document.getElementById('result').innerText = 
+        `image dimensions: ${imageHeight.toFixed(2)} x ${imageWidth.toFixed(2)} inches\n` +
+        // `border height: ${borderHeight.toFixed(2)} inches\n` +
+        // `border width: ${borderWidth.toFixed(2)} inches\n` +
+        `left blade: ${leftBlade.toFixed(2)} inches\n` +
+        `right blade: ${rightBlade.toFixed(2)} inches\n` +
+        `top blade: ${topBlade.toFixed(2)} inches\n` +
+        `bottom blade: ${bottomBlade.toFixed(2)} inches`;
+
     document.getElementById('previewContainer').style.display = 'block';
 }
 

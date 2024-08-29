@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="/styles/common.css">
     <link rel="stylesheet" href="/styles/exposure.css">
     <title>Print Exposure Time Calculator</title>
+    <script>
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+    
 </head>
 <body>
     <div id="toggle-container">

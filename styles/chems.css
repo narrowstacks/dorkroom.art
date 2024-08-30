@@ -44,7 +44,7 @@ h1 {
 
 .table-container table {
     width: 100%;
-    max-width: 600px; /* Set a max-width for the table */
+    max-width: 600px; 
     border-collapse: collapse;
 }
 
@@ -123,7 +123,7 @@ button:hover {
 }
 
 td {
-    position: relative; /* Make td the reference point for the delete button */
+    position: relative; 
 }
 
 .delete-btn {
@@ -135,14 +135,14 @@ td {
     width: 24px;
     height: 24px;
     font-size: 18px;
-    line-height: 24px; /* Ensure the text is centered vertically */
+    line-height: 24px; 
     cursor: pointer;
-    text-align: center; /* Center the text horizontally */
-    padding: 0; /* Remove any default padding */
-    position: absolute; /* Position it absolutely within the td */
+    text-align: center;
+    padding: 0; 
+    position: absolute; 
     top: 50%;
     transform: translateY(-50%);
-    left: -12px; /* Adjust this to position it properly within the cell */
+    left: -12px; 
 }
 
 tr:hover .delete-btn {
@@ -152,7 +152,7 @@ tr:hover .delete-btn {
 .volume-mixer-container {
     margin-top: 20px;
     text-align: left;
-    max-width: 300px; /* Adjust as necessary */
+    max-width: 300px;
 }
 
 .volume-mixer-container h2 {

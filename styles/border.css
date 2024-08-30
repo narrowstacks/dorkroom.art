@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --background-color: #e8f5e9; /* pastel green background */
+    --background-color: #e8f5e9;
     --white: white;
     --primary-color: #388e3c;
     --secondary-color: #66bb6a;
@@ -30,7 +30,7 @@ body {
 }
 
 .container {
-    max-width: 900px; /* Increased max-width to accommodate both form and preview */
+    max-width: 900px;
     width: 90%;
 }
 
@@ -55,7 +55,7 @@ body.dark-mode .home-button:hover {
 }
 
 h1, h2, label {
-    transition: color 0.5s ease; /* Add transition for smooth color change */
+    transition: color 0.5s ease;
 }
 
 h1 {
@@ -92,7 +92,7 @@ body.dark-mode label {
 input[type="number"],
 select {
     border: 1px solid var(--input-border);
-    transition: border-color 0.5s ease, background-color 0.5s ease, color 0.5s ease; /* Add transition for smooth color change */
+    transition: border-color 0.5s ease, background-color 0.5s ease, color 0.5s ease; 
 }
 
 body.dark-mode input[type="number"],

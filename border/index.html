@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Darkroom Print Border Calculator</title>
-    <script>
-        (function() {
-            const darkMode = localStorage.getItem('darkMode');
-            if (darkMode === 'enabled') {
-                document.documentElement.classList.add('dark-mode');
-            }
-        })();</script>
-    <script src="/scripts/darkmode.js" defer></script>
-
-    
-
     <link rel="stylesheet" href="/styles/common.css">
     <link rel="stylesheet" href="/styles/border.css">
-
-    <script src="/scripts/border.js" defer></script>
+    <script src="/scripts/darkmode.js"></script>
+    <script>
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body>
     <div id="toggle-container">
         <button id="dark-mode-toggle" title="toggle darkmode">🌙</button>
@@ -117,8 +108,11 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 
     <script src="/scripts/border.js"></script>
+
 </body>
 </html>

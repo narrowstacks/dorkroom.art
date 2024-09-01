@@ -9,13 +9,13 @@
 }
 
 h1 {
-    color: #8e388e;
+    color: var(--blue);
     font-size: 36px; 
     margin-bottom: 10px;
 }
 
 h2 {
-    color: #8e388e;
+    color: var(--blue);
     font-size: 20px;
     margin-top: 20px;
 }
@@ -64,14 +64,14 @@ input[type="number"] {
     width: 60px;
     padding: 5px;
     margin: 0;
-    border: 1px solid #8e388e;
+    border: 1px solid var(--blue);
     border-radius: 5px;
     text-align: center;
 }
 
 #newExposureTime, #stopsDifference {
     font-size: 20px;
-    color: #8e388e;
+    color: var(--blue);
     margin-top: 15px;
 }
 

@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initialize() {
-    // Add event listener for form submission
-    const resizeForm = document.getElementById('resizeForm');
-    if (resizeForm) {
-        resizeForm.addEventListener('submit', function(event) {
+    // Add event listener for the calculate button
+    const calculateButton = document.getElementById('calculateExposure');
+    if (calculateButton) {
+        calculateButton.addEventListener('click', function(event) {
             event.preventDefault();
 
             // Get input values
@@ -31,7 +31,7 @@ function initialize() {
             displayResults(result.newExposureTime, result.stopsDifference);
         });
     } else {
-        console.error('Form element not found. Ensure that the form with id "resizeForm" exists in the HTML.');
+        console.error('Calculate button not found. Ensure that the element with id "calculateExposure" exists in the HTML.');
     }
 }
 

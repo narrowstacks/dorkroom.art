@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/shared/colors.css">
     <link rel="stylesheet" href="/shared/common.css">
     <link rel="stylesheet" href="/styles/resize.css">
     <script src="/scripts/resize.js"></script>
@@ -57,7 +58,7 @@
                 <label for="originalTime">Original Exposure Time:</label>
                 <input type="number" id="originalTime" step="0.1" value="10"> seconds
             </div>
-            <button class="link-button link-button-blue">calculate new exposure time</button>
+            <a href="#" class="link-button link-button-blue" id="calculateExposure">calculate new exposure time</a>
         </form>
         
         <h2 id="newExposureTime">New Exposure Time: <span id="new-time"></span> seconds</h2>

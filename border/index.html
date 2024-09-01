@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Darkroom Print Border Calculator</title>
-    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/shared/common.css">
     <link rel="stylesheet" href="/styles/border.css">
-    <script src="/scripts/darkmode.js"></script>
+    <script src="/shared/darkmode.js"></script>
     <script>
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.documentElement.classList.add('dark-mode');
         }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/scripts/border.js"></script>
 </head>
 <body>
     <div id="toggle-container">
@@ -112,7 +113,7 @@
 
     </div>
 
-    <script src="/scripts/border.js"></script>
+    
 
 </body>
 </html>

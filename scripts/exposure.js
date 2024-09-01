@@ -1,8 +1,41 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the necessary functions and event listeners
+    initialize();
+    
+    // Display the results based on initial values in the HTML
+    const initialTime = parseFloat(document.getElementById('initial-time').value) || 0;
+    const stopChange = parseFloat(document.getElementById('stop-change').value) || 0;
+    calculateAndDisplayResults(initialTime, stopChange);
+});
+
+function initialize() {
+    // Add event listener for form submission
+    const exposureForm = document.getElementById('exposureForm');
+    if (exposureForm) {
+        exposureForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            calculateExposure();
+        });
+    } else {
+        console.error('Form element not found. Ensure that the form with id "exposureForm" exists in the HTML.');
+    }
+}
+
 function calculateExposure() {
     // Get the input values
     const initialTime = parseFloat(document.getElementById('initial-time').value);
     const stopChange = parseFloat(document.getElementById('stop-change').value);
     
+    // Validate inputs
+    if (isNaN(initialTime) || isNaN(stopChange)) {
+        alert("Please enter valid numerical values for all fields.");
+        return;
+    }
+    
+    calculateAndDisplayResults(initialTime, stopChange);
+}
+
+function calculateAndDisplayResults(initialTime, stopChange) {
     // Calculate the factor to multiply the initial time by
     const factor = Math.pow(2, stopChange);
     
@@ -20,58 +53,28 @@ function calculateExposure() {
     const differenceText = roundedDifference > 0 ? 'add' : 'remove';
     const absoluteDifference = Math.abs(roundedDifference);
     
+    // Display the results
+    displayResults(roundedTime, absoluteDifference, differenceText);
+}
+
+function displayResults(newTime, absoluteDifference, differenceText = 'add') {
     // Format the output to hide decimals if the number is an integer
     const formatNumber = (number) => {
         return Number.isInteger(number) ? number.toString() : number.toFixed(1);
     };
-    
+
     // Display the new exposure time
-    document.getElementById('new-time').textContent = formatNumber(roundedTime);
-    
-    // Display the difference in exposure time
-    document.getElementById('time-difference').textContent = `${differenceText} ${formatNumber(absoluteDifference)}`;
-    
-    // Show the new exposure time container
-    document.getElementById('new-time-container').classList.remove('hidden');
-    
-    // Show the time difference container
-    document.getElementById('time-difference-container').classList.remove('hidden');
-}
+    const newTimeElement = document.getElementById('new-time');
+    const timeDifferenceElement = document.getElementById('time-difference');
 
+    if (newTimeElement && timeDifferenceElement) {
+        newTimeElement.textContent = formatNumber(newTime);
+        timeDifferenceElement.textContent = `${differenceText} ${formatNumber(absoluteDifference)}`;
 
-document.getElementById('resizeForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Get input values
-    const originalLength = parseFloat(document.getElementById('originalLength').value);
-    const originalWidth = parseFloat(document.getElementById('originalWidth').value);
-    const newLength = parseFloat(document.getElementById('newLength').value);
-    const newWidth = parseFloat(document.getElementById('newWidth').value);
-    const originalTime = parseFloat(document.getElementById('originalTime').value);
-
-    // Calculate new exposure time and stops difference
-    const result = calculateNewExposureTime(originalLength, originalWidth, newLength, newWidth, originalTime);
-
-    // Display results
-    document.getElementById('newExposureTime').textContent = `New Exposure Time: ${result.newExposureTime.toFixed(2)} seconds`;
-    document.getElementById('stopsDifference').textContent = `Stops Difference: ${result.stopsDifference.toFixed(2)} stops`;
-});
-
-function calculateNewExposureTime(originalLength, originalWidth, newLength, newWidth, originalTime) {
-    const originalArea = originalLength * originalWidth;
-    const newArea = newLength * newWidth;
-    const multiplierFactor = newArea / originalArea;
-    const newExposureTime = originalTime * multiplierFactor;
-    const stopsDifference = Math.log2(multiplierFactor);
-
-    // throw an error if change in stops is blank
-    if (isNaN(stopsDifference)) {
-        throw new Error('Change in stops cannot be blank');
+        // Show the new exposure time and time difference containers
+        document.getElementById('new-time-container').classList.remove('hidden');
+        document.getElementById('time-difference-container').classList.remove('hidden');
+    } else {
+        console.error('Result display elements not found. Ensure that the elements with ids "new-time" and "time-difference" exist in the HTML.');
     }
-
-    return {
-        newExposureTime: newExposureTime,
-        stopsDifference: stopsDifference
-    };
-    
 }

@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Dorkroom: Darkroom Calculators</title>
-    <link rel="stylesheet" href="styles/common.css">
-    <link rel="stylesheet" href="styles/home.css">
+    <script>
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+    <script src="/shared/darkmode.js"></script>
+    <link rel="stylesheet" href="shared/common.css">
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
     <div id="toggle-container">
@@ -19,7 +25,7 @@
                 <h2>darkroom printing</h2>
                 <a href="border" class="link-button link-button-green"title="border calculator">border calculator</a>
                 <a href="exposure" class="link-button link-button-purple" title="stop-based exposure calculator">stop-based exposure calculator</a>
-                <a href="resizing" class="link-button link-button-blue" title="print resizing calculator">print resizing calculator</a>
+                <a href="resize" class="link-button link-button-blue" title="print resize calculator">print resize calculator</a>
             </div>
             <div class="link-container">
                 <h2>film shooting and developing</h2>
@@ -35,7 +41,6 @@
             </div>
     
     </div>
-    <script src="scripts/darkmode.js"></script>
 </body>
 
 </html>

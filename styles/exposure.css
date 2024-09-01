@@ -1,17 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
-
-/* :root {
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-    --font-weight-semi-bold: 600;
-    --font-weight-bold: 700;
-} */
-
-
 body {
     font-family: 'Jost', sans-serif;
-    background-color: #f3e8f5; /* pastel purple background */
+    background-color: #f3e8f5; 
     color: #333;
     margin: 0;
     padding: 0;
@@ -62,7 +51,7 @@ body.dark-mode label {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    align-self: flex-start; /* Aligns the button to the left */
+    align-self: flex-start;
     margin-bottom: 20px;
     font-weight: var(--font-weight-medium);
 }

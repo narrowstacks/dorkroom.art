@@ -39,7 +39,6 @@ h2 {
     padding: 10px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.iub
 
 .description-container{
     display: flex;
@@ -68,22 +67,6 @@ input[type="number"] {
     border: 1px solid #8e388e;
     border-radius: 5px;
     text-align: center;
-}
-
-button[type="submit"] {
-    background-color: #8e388e;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #6d2c6d;
 }
 
 #newExposureTime, #stopsDifference {

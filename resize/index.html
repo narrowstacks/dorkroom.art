@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/common.css">
-    <link rel="stylesheet" href="/styles/resizing.css">
+    <link rel="stylesheet" href="/shared/common.css">
+    <link rel="stylesheet" href="/styles/resize.css">
+    <script src="/scripts/resize.js"></script>
     <title>Print Resizing Calculator</title>
     <script>
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.documentElement.classList.add('dark-mode');
         }
     </script>
+    <script src="/shared/darkmode.js"></script>
+
     
 </head>
 <body>
@@ -54,14 +57,12 @@
                 <label for="originalTime">Original Exposure Time:</label>
                 <input type="number" id="originalTime" step="0.1" value="10"> seconds
             </div>
-            <button type="submit" class="link-button link-button-purple">calculate new exposure time</button>
+            <button class="link-button link-button-blue">calculate new exposure time</button>
         </form>
         
         <h2 id="newExposureTime">New Exposure Time: <span id="new-time"></span> seconds</h2>
         <h2 id="stopsDifference">Stops Difference: <span id="stops-difference"></span> stops</h2>
     </div>
 
-    <script src="../scripts/resize.js"></script>
-        <script src="/scripts/darkmode.js"></script>
 </body>
 </html>

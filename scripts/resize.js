@@ -56,9 +56,6 @@ function displayResults(newExposureTime, stopsDifference) {
         newExposureTimeElement.textContent = `New Exposure Time: ${newExposureTime.toFixed(2)} seconds`;
         stopsDifferenceElement.textContent = `Stops Difference: ${stopsDifference.toFixed(2)} stops`;
 
-        // Make sure the elements are visible
-        newExposureTimeElement.classList.remove('hidden');
-        stopsDifferenceElement.classList.remove('hidden');
     } else {
         console.error('Result display elements not found. Ensure that the elements with ids "newExposureTime" and "stopsDifference" exist in the HTML.');
     }

@@ -79,14 +79,14 @@ input[type="number"] {
     display: none;
 }
 
-/* Centering the original exposure time section */
+
 .original-exposure-time {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px; /* Optional: adds spacing below this section */
+    margin-bottom: 20px;
 }
 
 .original-exposure-time label {
-    margin-bottom: 5px; /* Optional: adds spacing between label and input */
+    margin-bottom: 5px; 
 }

@@ -12,23 +12,23 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     max-width: 500px;
-    width: 90%; /* Adjust to 90% for better fit on mobile */
+    width: 90%; 
     text-align: center;
 }
 
 h1 {
-    color: #d9534f; /* pastel red for h1 */
+    color: #d9534f; 
     margin-bottom: 0px;
 }
 
 h2 {
-    color: #e57373; /* pastel red for h2 */
+    color: #e57373; 
     margin-top: 0px;
     margin-bottom: 2px;
 }
 
 h3 {
-    color: #f08080; /* pastel red for h3 */
+    color: #f08080;
     margin-top: 0px;
 }
 
@@ -37,7 +37,7 @@ h3 {
     text-decoration: #4f7dd9 wavy underline; 
     text-decoration-skip-ink: none;
     height: .2em;
-    font-weight: 400; /* Regular weight */
+    font-weight: 400; 
 }
 
 .link-container-wrapper {

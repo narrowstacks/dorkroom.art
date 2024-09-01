@@ -53,8 +53,8 @@ function displayResults(newExposureTime, stopsDifference) {
     const stopsDifferenceElement = document.getElementById('stopsDifference');
 
     if (newExposureTimeElement && stopsDifferenceElement) {
-        newExposureTimeElement.textContent = `New Exposure Time: ${newExposureTime.toFixed(2)} seconds`;
-        stopsDifferenceElement.textContent = `Stops Difference: ${stopsDifference.toFixed(2)} stops`;
+        newExposureTimeElement.textContent = `new exposure time: ${newExposureTime.toFixed(2)} seconds`;
+        stopsDifferenceElement.textContent = `stops difference: ${stopsDifference.toFixed(2)} stops`;
 
     } else {
         console.error('Result display elements not found. Ensure that the elements with ids "newExposureTime" and "stopsDifference" exist in the HTML.');

@@ -24,6 +24,18 @@
         <h1>print border calculator</h1>
 
         <div class="content">
+            <div class="preview-container" id="previewContainer" style="display: none;">
+                <div id="paperPreview" class="paper-preview">
+                    <div id="printPreviewContainer" class="print-preview-container">
+                        <div id="printPreview" class="print-preview"></div>
+                    </div>
+                </div>
+                <br>
+                <div class="button-container">
+                    <a href="#" class="link-button link-button-green" onclick="toggleOrientation()">flip paper orientation</a>
+                    <a href="#" class="link-button link-button-green" onclick="flipRatio()">flip photo aspect ratio</a>
+                </div>
+            </div>
             <form id="borderForm">
                 <div class="selections">
                     <div class="selection">
@@ -97,18 +109,7 @@
                 <h2>result</h2>
                 <p id="result"></p>
             </form>
-            <div class="preview-container" id="previewContainer" style="display: none;">
-                <div id="paperPreview" class="paper-preview">
-                    <div id="printPreviewContainer" class="print-preview-container">
-                        <div id="printPreview" class="print-preview"></div>
-                    </div>
-                </div>
-                <br>
-                <div class="button-container">
-                    <a href="#" class="link-button link-button-green" onclick="toggleOrientation()">flip paper orientation</a>
-                    <a href="#" class="link-button link-button-green" onclick="flipRatio()">flip photo aspect ratio</a>
-                </div>
-            </div>
+
         </div>
 
 

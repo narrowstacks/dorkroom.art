@@ -59,5 +59,7 @@
     --gradient-bg-dark-fallback: #212121;  /* fallback for old browsers */
     --gradient-homepage-light-newer: linear-gradient(to right, #F27121, #E94057, #8A2387);
     --gradient-homepage-dark-newer: linear-gradient(to right, #000428, #004e92);
+
+    --shadow-color: #0000001a;
     
 }

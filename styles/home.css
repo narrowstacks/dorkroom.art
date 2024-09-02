@@ -38,8 +38,8 @@ h3 {
 	font-weight: 400;
 }
 body.darkroom-mode .custom-link {
-	color: var(--darkroom-dark-red);
-	text-decoration: var(--darkroom-dark-red) wavy underline;
+	color: var(--darkroom-pure-red);
+	text-decoration: var(--darkroom-pure-red) wavy underline;
 }
 body.high-contrast-mode .custom-link {
 	color: var(--high-contrast-text);
@@ -58,13 +58,6 @@ body.high-contrast-mode .custom-link {
 	min-width: 300px;
 }
 
-@media (max-width: 600px) {
-	.link-container-wrapper {
-		flex-direction: column;
-		gap: 10px;
-	}
-}
-
 .link-button {
 	display: inline-block;
 	color: #ffffff;
@@ -80,4 +73,38 @@ body.high-contrast-mode .custom-link {
 
 .hidden {
 	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		padding: 20px;
+		max-width: 95%;
+	}
+
+	h1 {
+		font-size: 2.2em;
+	}
+
+	h2 {
+		font-size: 1.7em;
+	}
+
+	h3 {
+		font-size: 1.3em;
+	}
+
+	.link-container-wrapper {
+		padding: 10px;
+	}
+
+	.link-button {
+		width: 90%;
+		padding: 15px 20px;
+		font-size: 1.1em;
+		margin-bottom: 10px;
+	}
+
+	.custom-link {
+		font-size: 1em;
+	}
 }

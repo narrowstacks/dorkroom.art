@@ -1,5 +1,6 @@
 .container {
 	max-width: 900px;
+	max-height: 600px;
 	width: 90%;
 }
 
@@ -64,25 +65,8 @@ body.darkroom-mode label {
 	color: var(--darkroom-text-color);
 }
 
-input[type="number"],
-select {
-	border: 1px solid var(--input-border);
-	transition: border-color 0.5s ease, background-color 0.5s ease,
-		color 0.5s ease;
-}
-
-body.dark-mode input[type="number"],
-body.dark-mode select {
-	border: 1px solid var(--dark-mode-border);
-	background-color: var(--dark-mode-background);
-	color: var(--dark-mode-text);
-}
-
-body.darkroom-mode input[type="number"],
-body.darkroom-mode select {
-	border: 1px solid var(--darkroom-dark-red);
-	background-color: var(--darkroom-background);
-	color: var(--darkroom-light-red);
+body.high-contrast-mode label {
+	color: var(--high-contrast-text-color);
 }
 
 .selections {
@@ -131,7 +115,8 @@ p {
 	border-radius: 5px;
 	font-size: 16px;
 	font-weight: var(--font-weight-regular);
-	transition: background-color 0.5s ease;
+	transition: background-color var(--transition-time) ease;
+	width: auto;
 }
 body.darkroom-mode p {
 	background-color: var(--darkroom-background);
@@ -139,6 +124,11 @@ body.darkroom-mode p {
 
 body.dark-mode p {
 	background-color: var(--p-background-dark);
+}
+
+body.high-contrast-mode p {
+	background-color: var(--high-contrast-background);
+	border: 2px solid var(--high-contrast-text-color);
 }
 
 .content {
@@ -179,8 +169,12 @@ body.dark-mode .paper-preview {
 }
 
 body.darkroom-mode .paper-preview {
-	background-color: var(--darkroom-dark-red);
-	border: 2px solid var(--darkroom-dark-red);
+	background-color: black;
+	border: 2px solid var(--darkroom-pure-red);
+}
+
+body.high-contrast-mode .paper-preview {
+	border: 2px solid var(--high-contrast-text-color);
 }
 
 .print-preview-container {
@@ -200,7 +194,7 @@ body.print-preview-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: background-color 0.5s ease;
+	transition: background-color var(--transition-time) ease;
 }
 
 body.dark-mode .print-preview {
@@ -209,10 +203,12 @@ body.dark-mode .print-preview {
 
 body.darkroom-mode .print-preview {
 	background-color: var(--darkroom-background);
+	border: 1px dashed var(--darkroom-pure-red);
 }
 
 body.high-contrast-mode .print-preview {
-	background-color: var(--high-contrast-dark-grey);
+	background-color: white;
+	border: 2px dashed black;
 }
 
 .link-button {
@@ -229,6 +225,7 @@ body.high-contrast-mode .print-preview {
 .button-container .link-button {
 	width: auto;
 	padding: 10px 20px;
+	margin: 5px 5px;
 }
 
 @media (max-width: 768px) {
@@ -240,6 +237,7 @@ body.high-contrast-mode .print-preview {
 
 	.container {
 		width: 100%;
+		max-height: none;
 	}
 
 	.preview-container {
@@ -319,4 +317,97 @@ body.high-contrast-mode .print-preview {
 	#customAspectRatio input {
 		width: 30%;
 	}
+}
+
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.custom-checkbox {
+	display: inline-block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	user-select: none;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.custom-checkbox .checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: var(--white);
+	border: 2px solid var(--secondary-color);
+	border-radius: 5px;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* When the checkbox is checked, add a background color */
+.custom-checkbox input:checked ~ .checkmark {
+	background-color: var(--primary-color);
+	border-color: var(--primary-color);
+}
+
+/* Add a checkmark/indicator */
+.custom-checkbox .checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-checkbox input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-checkbox .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid var(--white);
+	border-width: 0 3px 3px 0;
+	transform: rotate(45deg);
+}
+
+/* Dark mode styles */
+body.dark-mode .custom-checkbox .checkmark {
+	background-color: var(--dark-mode-background);
+	border-color: var(--dark-mode-border);
+}
+
+body.dark-mode .custom-checkbox input:checked ~ .checkmark {
+	background-color: var(--dark-mode-text);
+	border-color: var(--dark-mode-text);
+}
+
+/* High contrast mode styles */
+body.high-contrast-mode .custom-checkbox .checkmark {
+	background-color: var(--high-contrast-background);
+	border-color: var(--high-contrast-text-color);
+}
+
+body.high-contrast-mode .custom-checkbox input:checked ~ .checkmark {
+	background-color: var(--high-contrast-text-color);
+	border-color: var(--high-contrast-text-color);
+}
+
+/* Darkroom mode styles */
+body.darkroom-mode .custom-checkbox .checkmark {
+	background-color: var(--darkroom-background);
+	border-color: var(--darkroom-text-color);
+}
+
+body.darkroom-mode .custom-checkbox input:checked ~ .checkmark {
+	background-color: var(--darkroom-text-color);
+	border-color: var(--darkroom-text-color);
 }

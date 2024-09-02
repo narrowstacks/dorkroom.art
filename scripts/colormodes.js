@@ -3,7 +3,7 @@ const modeIcons = {
 	light: "🌙",
 	dark: "🌞",
 	darkroom: "🟥",
-	"high-contrast": "✒️",
+	"high-contrast": "HC",
 };
 
 function getLocalStorage(key) {
@@ -30,11 +30,16 @@ function updateMode(mode) {
 	const modeToggle = document.getElementById("mode-toggle");
 	modeToggle.textContent = modeIcons[mode];
 
-	const githubLogo = document.querySelector(".github-logo");
-	githubLogo.src =
-		mode === "dark" || mode === "darkroom"
-			? "media/github-mark.png"
-			: "media/github-mark-white.png";
+	// only try to update the GitHub logo if on homepage of website
+	if (window.location.pathname == "/") {
+		const githubLogo = document.querySelector(".github-logo");
+		githubLogo.src =
+			mode === "dark"
+				? "media/github-mark.png"
+				: mode === "darkroom"
+				? "media/github-mark-red.png"
+				: "media/github-mark-white.png";
+	}
 }
 
 document.addEventListener("DOMContentLoaded", () => {

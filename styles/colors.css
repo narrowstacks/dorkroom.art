@@ -78,6 +78,7 @@
 	--darkroom-dark-red: #8b0000; /* Dark red for less prominent elements */
 	--darkroom-light-red: #ff6347; /* Light red for highlights */
 	--darkroom-medium-red: #b22222; /* Medium red for regular elements */
+	--darkroom-pure-red: #ff0000; /* Pure red for important elements */
 
 	/* border.css */
 	--background-color: #e8f5e9;

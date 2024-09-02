@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<script src="/scripts/colormodes.js"></script>
 		<meta charset="UTF-8" />
 		<title>Darkroom Print Border Calculator</title>
-		<link rel="stylesheet" href="/shared/colors.css" />
-		<link rel="stylesheet" href="/shared/common.css" />
+		<link rel="stylesheet" href="/styles/colors.css" />
+		<link rel="stylesheet" href="/styles/common.css" />
 		<link rel="stylesheet" href="/styles/border.css" />
-		<!-- <script src="/shared/colormodes.js"></script> -->
+
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script src="/scripts/border.js"></script>
 	</head>
@@ -41,7 +42,10 @@
 							>flip photo aspect ratio</a
 						>
 					</div>
+					<h2>result</h2>
+					<p id="result"></p>
 				</div>
+
 				<form id="borderForm">
 					<div class="selector-group">
 						<div class="selection">
@@ -118,16 +122,23 @@
 						required
 						value=".5"
 					/><br />
-
-					<label for="enableOffset">
+					<a
+						href="#"
+						class="link-button link-button-green"
+						onclick="calculateBorders()"
+						>calculate</a
+					>
+					<label for="enableOffset" class="custom-checkbox">
 						<input
 							type="checkbox"
 							id="enableOffset"
 							name="enableOffset"
 							onchange="toggleOffsets()"
 						/>
-						Enable offsets </label
-					><br />
+						<span class="checkmark"></span>
+						enable offsets
+					</label>
+					<br />
 
 					<div id="offsetInputs" style="display: none">
 						<label for="horizontalOffset">Horizontal offset (in inches):</label>
@@ -150,15 +161,6 @@
 							onchange="calculateBorders()"
 						/><br />
 					</div>
-
-					<a
-						href="#"
-						class="link-button link-button-green"
-						onclick="calculateBorders()"
-						>calculate</a
-					>
-					<h2>result</h2>
-					<p id="result"></p>
 				</form>
 			</div>
 		</div>

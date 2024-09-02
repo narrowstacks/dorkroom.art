@@ -6,19 +6,11 @@
 		<link rel="stylesheet" href="/shared/colors.css" />
 		<link rel="stylesheet" href="/shared/common.css" />
 		<link rel="stylesheet" href="/styles/border.css" />
-		<script src="/shared/darkmode.js"></script>
-		<script>
-			if (localStorage.getItem("darkMode") === "enabled") {
-				document.documentElement.classList.add("dark-mode");
-			}
-		</script>
+		<!-- <script src="/shared/colormodes.js"></script> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script src="/scripts/border.js"></script>
 	</head>
 	<body>
-		<div id="toggle-container">
-			<button id="dark-mode-toggle" title="toggle darkmode">🌙</button>
-		</div>
 		<div class="container">
 			<a href="../" class="home-button">return to home</a>
 			<h1>print border calculator</h1>
@@ -51,25 +43,14 @@
 					</div>
 				</div>
 				<form id="borderForm">
-					<div class="selections">
+					<div class="selector-group">
 						<div class="selection">
 							<label for="aspectRatio">aspect ratio:</label>
 							<select
 								id="aspectRatio"
 								name="aspectRatio"
 								onchange="updateAspectRatio()"
-							>
-								<option value="3/2">35mm standard frame, 6x9 (2x3)</option>
-								<option value="65/24">XPan Pano (65x24)</option>
-								<option value="6/4.5">6x4.5</option>
-								<option value="1">Square/6x6</option>
-								<option value="7/6">6x7</option>
-								<option value="8/6">6x8</option>
-								<option value="5/4">4x5</option>
-								<option value="7/5">5x7</option>
-								<option value="4/3">4x3</option>
-								<option value="Custom">Custom</option>
-							</select>
+							></select>
 						</div>
 
 						<div class="selection">
@@ -78,16 +59,7 @@
 								id="paperSize"
 								name="paperSize"
 								onchange="updatePaperSize()"
-							>
-								<option value="4x5">4x5</option>
-								<option value="4x6">4x6 (postcard)</option>
-								<option value="5x7">5x7</option>
-								<option value="8x10">8x10</option>
-								<option value="11x14">11x14</option>
-								<option value="16x20">16x20</option>
-								<option value="20x24">20x24</option>
-								<option value="Custom">Custom</option>
-							</select>
+							></select>
 						</div>
 					</div>
 

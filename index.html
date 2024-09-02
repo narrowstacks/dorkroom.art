@@ -3,20 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Dorkroom: Darkroom Calculators</title>
-		<script>
-			if (localStorage.getItem("darkMode") === "enabled") {
-				document.documentElement.classList.add("dark-mode");
-			}
-		</script>
-		<script src="/shared/darkmode.js"></script>
+		<!-- <script src="/shared/colormodes.js"></script> -->
 		<link rel="stylesheet" href="shared/colors.css" />
 		<link rel="stylesheet" href="shared/common.css" />
 		<link rel="stylesheet" href="home.css" />
 	</head>
 	<body>
-		<div id="toggle-container">
-			<button id="dark-mode-toggle" title="toggle dark mode">🌙</button>
-		</div>
 		<div class="container">
 			<h1>dorkroom.art</h1>
 			<h2><i>darkroom and photography calculators</i></h2>
@@ -91,4 +83,32 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		document.querySelectorAll(".link-button-unavailable").forEach((button) => {
+			button.addEventListener("mouseenter", () => {
+				button.dataset.originalText = button.textContent;
+				button.textContent = "coming soon!";
+			});
+			button.addEventListener("mouseleave", () => {
+				button.textContent = button.dataset.originalText;
+			});
+		});
+	</script>
+	<script>
+		if ("serviceWorker" in navigator) {
+			window.addEventListener("load", function () {
+				navigator.serviceWorker.register("/shared/serviceworker.js").then(
+					function (registration) {
+						console.log(
+							"ServiceWorker registration successful with scope: ",
+							registration.scope
+						);
+					},
+					function (err) {
+						console.log("ServiceWorker registration failed: ", err);
+					}
+				);
+			});
+		}
+	</script>
 </html>

@@ -1,78 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap");
 
 body {
-    background: #8A2387;  /* fallback for old browsers */
-    background: var(--gradient-homepage-light-older);
-    background: var(--gradient-homepage-light-newer);
+	background: #8a2387; /* fallback for old browsers */
+	background: var(--gradient-homepage-light-older);
+	background: var(--gradient-homepage-light-newer);
 }
 
 .container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 500px;
-    width: 90%; 
-    text-align: center;
+	background-color: #ffffff;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	max-width: 500px;
+	width: 90%;
+	text-align: center;
 }
 
 h1 {
-    color: #d9534f; 
-    margin-bottom: 0px;
+	color: #d9534f;
+	margin-bottom: 0px;
 }
 
 h2 {
-    color: #e57373; 
-    margin-top: 0px;
-    margin-bottom: 2px;
+	color: #e57373;
+	margin-top: 0px;
+	margin-bottom: 2px;
 }
 
 h3 {
-    color: #f08080;
-    margin-top: 0px;
+	color: #f08080;
+	margin-top: 0px;
 }
 
 .custom-link {
-    color: #4f7dd9;
-    text-decoration: #4f7dd9 wavy underline; 
-    text-decoration-skip-ink: none;
-    height: .2em;
-    font-weight: 400; 
+	color: #4f7dd9;
+	text-decoration: #4f7dd9 wavy underline;
+	text-decoration-skip-ink: none;
+	height: 0.2em;
+	font-weight: 400;
 }
 
 .link-container-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px 40px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 20px 40px;
 }
 
 .link-container {
-    flex: 1;
-    min-width: 300px;
+	flex: 1;
+	min-width: 300px;
 }
 
 @media (max-width: 600px) {
-    .link-container-wrapper {
-        flex-direction: column;
-        gap: 10px;
-    }
+	.link-container-wrapper {
+		flex-direction: column;
+		gap: 10px;
+	}
 }
 
 .link-button {
-    display: inline-block;
-    color: #ffffff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin: 0 auto;
-    width: 60%;
-    font-weight: var(--font-weight-normal);
-    margin-bottom: 5px;
+	display: inline-block;
+	color: #ffffff;
+	padding: 10px 20px;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+	margin: 0 auto;
+	width: 60%;
+	font-weight: var(--font-weight-normal);
+	margin-bottom: 5px;
 }
 
 .hidden {
-    display: none;
+	display: none;
 }
-

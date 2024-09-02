@@ -1,49 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dorkroom: Darkroom Calculators</title>
-    <script>
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
-    <script src="/shared/darkmode.js"></script>
-    <link rel="stylesheet" href="shared/colors.css">
-    <link rel="stylesheet" href="shared/common.css">
-    <link rel="stylesheet" href="home.css">
-</head>
-<body>
-    <div id="toggle-container">
-        <button id="dark-mode-toggle" title="toggle dark mode">🌙</button>
-    </div>
-    <div class="container">
-        <h1>dorkroom.art</h1>
-        <h2><i>darkroom and photography calculators</i></h2>
-        <i><h3>by <a href="https://www.affords.art" class="custom-link">aaron f.a.</a></h3></i>
-        <div class="link-container-wrapper">
-            <div class="link-container">
-                <h2>darkroom printing</h2>
-                <a href="border" class="link-button link-button-green"title="border calculator">border calculator</a>
-                <a href="exposure" class="link-button link-button-purple" title="stop-based exposure calculator">stop-based exposure calculator</a>
-                <a href="resize" class="link-button link-button-blue" title="print resize calculator">print resize calculator</a>
-            </div>
-            <div class="link-container">
-                <h2>film shooting and developing</h2>
-                <a href="#" class="link-button link-button-unavailable" title="coming soon!">exposure calculator</a>
-                <a href="#" class="link-button link-button-unavailable" title="coming soon!">developer dilution calculator</a>
-                <a href="#" class="link-button link-button-unavailable" title="coming soon!">push/pull calculator</a>
-                <a href="#" class="link-button link-button-unavailable" title="coming soon!">reciprocity calculator</a>
-            </div>
-            </div>
-            <div class="link-container">
-                <a href="https://github.com/narrowstacks/Darkroom-Calculators" class="link-button link-button-github">
-                    <img src="media/github-mark-white.png" alt="GitHub Logo" class="github-logo">
-                    <span>contribute on github</span>
-                </a>
-            </div>
-    
-    </div>
-</body>
-
+	<head>
+		<meta charset="UTF-8" />
+		<title>Dorkroom: Darkroom Calculators</title>
+		<script>
+			if (localStorage.getItem("darkMode") === "enabled") {
+				document.documentElement.classList.add("dark-mode");
+			}
+		</script>
+		<script src="/shared/darkmode.js"></script>
+		<link rel="stylesheet" href="shared/colors.css" />
+		<link rel="stylesheet" href="shared/common.css" />
+		<link rel="stylesheet" href="home.css" />
+	</head>
+	<body>
+		<div id="toggle-container">
+			<button id="dark-mode-toggle" title="toggle dark mode">🌙</button>
+		</div>
+		<div class="container">
+			<h1>dorkroom.art</h1>
+			<h2><i>darkroom and photography calculators</i></h2>
+			<i
+				><h3>
+					by
+					<a href="https://www.affords.art" class="custom-link">aaron f.a.</a>
+				</h3></i
+			>
+			<div class="link-container-wrapper">
+				<div class="link-container">
+					<h2>darkroom printing</h2>
+					<a
+						href="border"
+						class="link-button link-button-green"
+						title="border calculator"
+						>border calculator</a
+					>
+					<a
+						href="exposure"
+						class="link-button link-button-purple"
+						title="stop-based exposure calculator"
+						>stop-based exposure calculator</a
+					>
+					<a
+						href="resize"
+						class="link-button link-button-blue"
+						title="print resize calculator"
+						>print resize calculator</a
+					>
+				</div>
+				<div class="link-container">
+					<h2>film shooting and developing</h2>
+					<a
+						href="#"
+						class="link-button link-button-unavailable"
+						title="coming soon!"
+						>exposure calculator</a
+					>
+					<a
+						href="#"
+						class="link-button link-button-unavailable"
+						title="coming soon!"
+						>developer dilution calculator</a
+					>
+					<a
+						href="#"
+						class="link-button link-button-unavailable"
+						title="coming soon!"
+						>push/pull calculator</a
+					>
+					<a
+						href="#"
+						class="link-button link-button-unavailable"
+						title="coming soon!"
+						>reciprocity calculator</a
+					>
+				</div>
+			</div>
+			<div class="link-container">
+				<a
+					href="https://github.com/narrowstacks/Darkroom-Calculators"
+					class="link-button link-button-github"
+				>
+					<img
+						src="media/github-mark-white.png"
+						alt="GitHub Logo"
+						class="github-logo"
+					/>
+					<span>contribute on github</span>
+				</a>
+			</div>
+		</div>
+	</body>
 </html>

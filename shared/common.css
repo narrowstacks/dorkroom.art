@@ -2,6 +2,7 @@
 
 :root {
     --transition-time: 0.5s;
+}
 
 body {
     font-family: 'Jost', sans-serif;
@@ -32,14 +33,6 @@ body::before {
     opacity: 0;
 }
 
-body.dark-mode::before {
-    opacity: 1;
-}
-
-body.dark-mode {
-    color: var(--text-color-dark);
-}
-
 .container {
     background-color: var(--container-background);
     transition: background-color var(--transition-time) ease; 
@@ -61,10 +54,6 @@ select {
     border-radius: 5px;
     font-size: 16px;
     font-weight: var(--font-weight-light);
-}
-
-body.dark-mode .container {
-    background-color: var(--container-background-dark);
 }
 
 h1, h2, h3 {
@@ -118,15 +107,6 @@ h3 {
 
 .home-button:hover {
     background-color: var(--home-button-hover);
-}
-
-/* add dark mode for home buttona */
-body.dark-mode .home-button {
-    background-color: var(--home-button-dark);
-}
-
-body.dark-mode .home-button:hover {
-    background-color: var(--home-button-dark-hover);
 }
 
 @media (max-width: 600px) {
@@ -242,9 +222,46 @@ body.dark-mode .home-button:hover {
     line-height: 24px; 
 }
 
-
 .link-button-github:hover {
     background-color: var(--github-hover);
+}
+
+.hidden {
+    display: none;
+}
+
+.description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    padding: 20px 40px;
+    width: 48%;
+}
+
+/* Dark Mode */
+body.dark-mode::before {
+    opacity: 1;
+}
+
+body.dark-mode {
+    color: var(--text-color-dark);
+}
+
+body.dark-mode .container {
+    background-color: var(--container-background-dark);
+}
+
+body.dark-mode .home-button {
+    background-color: var(--home-button-dark);
+}
+
+body.dark-mode .home-button:hover {
+    background-color: var(--home-button-dark-hover);
 }
 
 body.dark-mode .link-button-github {
@@ -257,7 +274,70 @@ body.dark-mode .link-button-github:hover {
     color: var(--github-dark-text-hover);
 }
 
-.hidden {
-    display: none;
+/* High Contrast Mode */
+body.high-contrast-mode {
+    background-color: var(--high-contrast-background);
+    color: var(--high-contrast-text-color);
 }
+
+body.high-contrast-mode .container {
+    background-color: var(--high-contrast-background);
+    color: var(--high-contrast-dark-grey);
+}
+
+body.high-contrast-mode h1, body.high-contrast-mode h2, body.high-contrast-mode h3 {
+    color: var(--high-contrast-text-color);
+}
+
+body.high-contrast-mode .home-button {
+    background-color: var(--high-contrast-light-grey);
+    color: var(--high-contrast-text-color);
+}
+
+body.high-contrast-mode .home-button:hover {
+    background-color: var(--high-contrast-dark-grey);
+}
+
+body.high-contrast-mode .link-button {
+    background-color: var(--high-contrast-dark-grey);
+    color: var(--high-contrast-background);
+}
+
+body.high-contrast-mode .link-button:hover {
+    background-color: var(--high-contrast-light-grey);
+    color: var(--high-contrast-text-color);
+}
+
+/* Darkroom Mode */
+body.darkroom-mode {
+    background-color: var(--darkroom-background);
+    color: var(--darkroom-text-color);
+}
+
+body.darkroom-mode .container {
+    background-color: var(--darkroom-background);
+    color: var(--darkroom-light-red);
+}
+
+body.darkroom-mode h1, body.darkroom-mode h2, body.darkroom-mode h3 {
+    color: var(--darkroom-text-color);
+}
+
+body.darkroom-mode .home-button {
+    background-color: var(--darkroom-medium-red);
+    color: var(--darkroom-text-color);
+}
+
+body.darkroom-mode .home-button:hover {
+    background-color: var(--darkroom-dark-red);
+}
+
+body.darkroom-mode .link-button {
+    background-color: var(--darkroom-dark-red);
+    color: var(--darkroom-light-red);
+}
+
+body.darkroom-mode .link-button:hover {
+    background-color: var(--darkroom-medium-red);
+    color: var(--darkroom-text-color);
 }

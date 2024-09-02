@@ -61,5 +61,18 @@
     --gradient-homepage-dark-newer: linear-gradient(to right, #000428, #004e92);
 
     --shadow-color: #0000001a;
-    
+
+    /* high contrast (e-ink display) mode */
+    --high-contrast-background: #ffffff; /* White background */
+    --high-contrast-text-color: #000000; /* Black text for high contrast */
+    --high-contrast-light-grey: #e0e0e0; /* Light grey for subtle elements */
+    --high-contrast-dark-grey: #333333; /* Dark grey for more prominent elements */
+
+    /* darkroom mode */
+    --darkroom-background: #000000; /* Black background */
+    --darkroom-text-color: #ff0000; /* Bright red text */
+    --darkroom-dark-red: #8b0000; /* Dark red for less prominent elements */
+    --darkroom-light-red: #ff6347; /* Light red for highlights */
+    --darkroom-medium-red: #b22222; /* Medium red for regular elements */
 }
+

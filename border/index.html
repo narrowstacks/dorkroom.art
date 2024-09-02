@@ -1,121 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Darkroom Print Border Calculator</title>
-    <link rel="stylesheet" href="/shared/colors.css">
-    <link rel="stylesheet" href="/shared/common.css">
-    <link rel="stylesheet" href="/styles/border.css">
-    <script src="/shared/darkmode.js"></script>
-    <script>
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/scripts/border.js"></script>
-</head>
-<body>
-    <div id="toggle-container">
-        <button id="dark-mode-toggle" title="toggle darkmode">🌙</button>
-    </div>
-    <div class="container">
-        <a href="../" class="home-button">return to home</a>
-        <h1>print border calculator</h1>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Darkroom Print Border Calculator</title>
+		<link rel="stylesheet" href="/shared/colors.css" />
+		<link rel="stylesheet" href="/shared/common.css" />
+		<link rel="stylesheet" href="/styles/border.css" />
+		<script src="/shared/darkmode.js"></script>
+		<script>
+			if (localStorage.getItem("darkMode") === "enabled") {
+				document.documentElement.classList.add("dark-mode");
+			}
+		</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="/scripts/border.js"></script>
+	</head>
+	<body>
+		<div id="toggle-container">
+			<button id="dark-mode-toggle" title="toggle darkmode">🌙</button>
+		</div>
+		<div class="container">
+			<a href="../" class="home-button">return to home</a>
+			<h1>print border calculator</h1>
 
-        <div class="content">
-            <div class="preview-container" id="previewContainer" style="display: none;">
-                <div id="paperPreview" class="paper-preview">
-                    <div id="printPreviewContainer" class="print-preview-container">
-                        <div id="printPreview" class="print-preview"></div>
-                    </div>
-                </div>
-                <br>
-                <div class="button-container">
-                    <a href="#" class="link-button link-button-green" onclick="toggleOrientation()">flip paper orientation</a>
-                    <a href="#" class="link-button link-button-green" onclick="flipRatio()">flip photo aspect ratio</a>
-                </div>
-            </div>
-            <form id="borderForm">
-                <div class="selections">
-                    <div class="selection">
-                        <label for="aspectRatio">aspect ratio:</label>
-                        <select id="aspectRatio" name="aspectRatio" onchange="updateAspectRatio()">
-                            <option value="3/2">35mm standard frame, 6x9 (2x3)</option>
-                            <option value="65/24">XPan Pano (65x24)</option>
-                            <option value="6/4.5">6x4.5</option>
-                            <option value="1">Square/6x6</option>
-                            <option value="7/6">6x7</option>
-                            <option value="8/6">6x8</option>
-                            <option value="5/4">4x5</option>
-                            <option value="7/5">5x7</option>
-                            <option value="4/3">4x3</option>
-                            <option value="Custom">Custom</option>
-                        </select>
-                    </div>
+			<div class="content">
+				<div
+					class="preview-container"
+					id="previewContainer"
+					style="display: none"
+				>
+					<div id="paperPreview" class="paper-preview">
+						<div id="printPreviewContainer" class="print-preview-container">
+							<div id="printPreview" class="print-preview"></div>
+						</div>
+					</div>
+					<br />
+					<div class="button-container">
+						<a
+							href="#"
+							class="link-button link-button-green"
+							onclick="toggleOrientation()"
+							>flip paper orientation</a
+						>
+						<a
+							href="#"
+							class="link-button link-button-green"
+							onclick="flipRatio()"
+							>flip photo aspect ratio</a
+						>
+					</div>
+				</div>
+				<form id="borderForm">
+					<div class="selections">
+						<div class="selection">
+							<label for="aspectRatio">aspect ratio:</label>
+							<select
+								id="aspectRatio"
+								name="aspectRatio"
+								onchange="updateAspectRatio()"
+							>
+								<option value="3/2">35mm standard frame, 6x9 (2x3)</option>
+								<option value="65/24">XPan Pano (65x24)</option>
+								<option value="6/4.5">6x4.5</option>
+								<option value="1">Square/6x6</option>
+								<option value="7/6">6x7</option>
+								<option value="8/6">6x8</option>
+								<option value="5/4">4x5</option>
+								<option value="7/5">5x7</option>
+								<option value="4/3">4x3</option>
+								<option value="Custom">Custom</option>
+							</select>
+						</div>
 
-                    <div class="selection">
-                        <label for="paperSize">paper size:</label>
-                        <select id="paperSize" name="paperSize" onchange="updatePaperSize()">
-                            <option value="4x5">4x5</option>
-                            <option value="4x6">4x6 (postcard)</option>
-                            <option value="5x7">5x7</option>
-                            <option value="8x10">8x10</option>
-                            <option value="11x14">11x14</option>
-                            <option value="16x20">16x20</option>
-                            <option value="20x24">20x24</option>
-                            <option value="Custom">Custom</option>
-                        </select>
-                    </div>
-                </div>
+						<div class="selection">
+							<label for="paperSize">paper size:</label>
+							<select
+								id="paperSize"
+								name="paperSize"
+								onchange="updatePaperSize()"
+							>
+								<option value="4x5">4x5</option>
+								<option value="4x6">4x6 (postcard)</option>
+								<option value="5x7">5x7</option>
+								<option value="8x10">8x10</option>
+								<option value="11x14">11x14</option>
+								<option value="16x20">16x20</option>
+								<option value="20x24">20x24</option>
+								<option value="Custom">Custom</option>
+							</select>
+						</div>
+					</div>
 
-                <div id="customDimensions" class="dimensions" style="display: none;">
-                    <div class="dimension">
-                        <label for="paperWidth">paper width (in inches):</label>
-                        <input type="number" id="paperWidth" name="paperWidth" required oninput="setCustomSize()">
-                    </div>
-                    <div class="dimension">
-                        <label for="paperHeight">paper height (in inches):</label>
-                        <input type="number" id="paperHeight" name="paperHeight" required oninput="setCustomSize()">
-                    </div>
-                </div>
-                <div id="customAspectRatio" class="dimensions" style="display: none;">
-                    <div class="dimension">
-                        <label for="customAspectWidth">custom ratio width:</label>
-                        <input type="number" id="customAspectWidth" name="customAspectWidth" required oninput="setCustomAspectRatio()">
-                    </div>
-                    <div class="dimension">
-                        <label for="customAspectHeight">custom ratio height:</label>
-                        <input type="number" id="customAspectHeight" name="customAspectHeight" required oninput="setCustomAspectRatio()">
-                    </div>
-                </div>
+					<div id="customDimensions" class="dimensions" style="display: none">
+						<div class="dimension">
+							<label for="paperWidth">paper width (in inches):</label>
+							<input
+								type="number"
+								id="paperWidth"
+								name="paperWidth"
+								required
+								oninput="setCustomSize()"
+							/>
+						</div>
+						<div class="dimension">
+							<label for="paperHeight">paper height (in inches):</label>
+							<input
+								type="number"
+								id="paperHeight"
+								name="paperHeight"
+								required
+								oninput="setCustomSize()"
+							/>
+						</div>
+					</div>
+					<div id="customAspectRatio" class="dimensions" style="display: none">
+						<div class="dimension">
+							<label for="customAspectWidth">custom ratio width:</label>
+							<input
+								type="number"
+								id="customAspectWidth"
+								name="customAspectWidth"
+								required
+								oninput="setCustomAspectRatio()"
+							/>
+						</div>
+						<div class="dimension">
+							<label for="customAspectHeight">custom ratio height:</label>
+							<input
+								type="number"
+								id="customAspectHeight"
+								name="customAspectHeight"
+								required
+								oninput="setCustomAspectRatio()"
+							/>
+						</div>
+					</div>
 
-                <label for="minBorder">minimum border size (in inches):</label>
-                <input type="number" id="minBorder" name="minBorder" min="0" step="0.25" required value= .5><br>
-            
-                <label for="enableOffset">
-                    <input type="checkbox" id="enableOffset" name="enableOffset" onchange="toggleOffsets()"> Enable offsets
-                </label><br>
-            
-                <div id="offsetInputs" style="display: none;">
-                    <label for="horizontalOffset">Horizontal offset (in inches):</label>
-                    <input type="number" id="horizontalOffset" name="horizontalOffset" step="0.25" value="0" onchange="calculateBorders()"><br>
-                    
-                    <label for="verticalOffset">Vertical offset (in inches):</label>
-                    <input type="number" id="verticalOffset" name="verticalOffset" step="0.25" value="0" onchange="calculateBorders()"><br>
-                </div>
+					<label for="minBorder">minimum border size (in inches):</label>
+					<input
+						type="number"
+						id="minBorder"
+						name="minBorder"
+						min="0"
+						step="0.25"
+						required
+						value=".5"
+					/><br />
 
-                <a href="#" class="link-button link-button-green" onclick="calculateBorders()">calculate</a>
-                <h2>result</h2>
-                <p id="result"></p>
-            </form>
+					<label for="enableOffset">
+						<input
+							type="checkbox"
+							id="enableOffset"
+							name="enableOffset"
+							onchange="toggleOffsets()"
+						/>
+						Enable offsets </label
+					><br />
 
-        </div>
+					<div id="offsetInputs" style="display: none">
+						<label for="horizontalOffset">Horizontal offset (in inches):</label>
+						<input
+							type="number"
+							id="horizontalOffset"
+							name="horizontalOffset"
+							step="0.25"
+							value="0"
+							onchange="calculateBorders()"
+						/><br />
 
+						<label for="verticalOffset">Vertical offset (in inches):</label>
+						<input
+							type="number"
+							id="verticalOffset"
+							name="verticalOffset"
+							step="0.25"
+							value="0"
+							onchange="calculateBorders()"
+						/><br />
+					</div>
 
-    </div>
-
-    
-
-</body>
+					<a
+						href="#"
+						class="link-button link-button-green"
+						onclick="calculateBorders()"
+						>calculate</a
+					>
+					<h2>result</h2>
+					<p id="result"></p>
+				</form>
+			</div>
+		</div>
+	</body>
 </html>

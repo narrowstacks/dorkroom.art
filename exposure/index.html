@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/shared/colors.css">
-    <link rel="stylesheet" href="/shared/common.css">
-    <link rel="stylesheet" href="/styles/exposure.css">
-    <title>Print Exposure Time Calculator</title>
-    <script>
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
-    
-</head>
-<body>
-    <div id="toggle-container">
-        <button id="dark-mode-toggle" title="toggle darkmode">🌙</button>
-    </div>
-    <div class="container">
-        <a href="/" class="home-button">return to home</a>
-        <h1>print exposure time calculator</h1>
-        <label for="initial-time">initial exposure time (seconds):</label>
-        <input type="number" id="initial-time" step="0.1" min="0.1" value="10">
-        
-        <label for="stop-change">change in stops (positive for more light, negative for less):</label>
-        <input type="number" id="stop-change" step="0.1" value="1">
-        
-        <a href="#" class="link-button link-button-purple" onclick="calculateExposure()">calculate new exposure time</a>
-        
-        <h2 id="time-difference-container"><span id="time-difference"></span> seconds</h2>    
-        <h2 id="new-time-container">new exposure time: <span id="new-time"></span> seconds</h2>
-        
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/shared/colors.css" />
+		<link rel="stylesheet" href="/shared/common.css" />
+		<link rel="stylesheet" href="/styles/exposure.css" />
+		<title>Print Exposure Time Calculator</title>
+		<script>
+			if (localStorage.getItem("darkMode") === "enabled") {
+				document.documentElement.classList.add("dark-mode");
+			}
+		</script>
+		<script src="/scripts/darkmode.js"></script>
+	</head>
+	<body>
+		<div id="toggle-container">
+			<button id="dark-mode-toggle" title="toggle darkmode">🌙</button>
+		</div>
+		<div class="container">
+			<a href="/" class="home-button">return to home</a>
+			<h1>print exposure time calculator</h1>
+			<label for="initial-time">initial exposure time (seconds):</label>
+			<input type="number" id="initial-time" step="0.1" min="0.1" value="10" />
 
-    <script src="/scripts/exposure.js"></script>
-    <script src="/scripts/darkmode.js"></script>
-</body>
+			<label for="stop-change"
+				>change in stops (positive for more light, negative for less):</label
+			>
+			<input type="number" id="stop-change" step="0.1" value="1" />
+
+			<a
+				href="#"
+				class="link-button link-button-purple"
+				onclick="calculateExposure()"
+				>calculate new exposure time</a
+			>
+
+			<h2 id="time-difference-container">
+				<span id="time-difference"></span> seconds
+			</h2>
+			<h2 id="new-time-container">
+				new exposure time: <span id="new-time"></span> seconds
+			</h2>
+		</div>
+
+		<script src="/scripts/exposure.js"></script>
+	</body>
 </html>

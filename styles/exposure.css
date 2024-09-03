@@ -53,6 +53,9 @@ body.dark-mode label {
 
 @media (max-width: 768px) {
 	body{
-		background-color: white;
+		background: white;
+	}
+	.container {
+		box-shadow: none;
 	}
 }

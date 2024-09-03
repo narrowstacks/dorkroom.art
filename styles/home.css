@@ -79,6 +79,7 @@ body.high-contrast-mode .custom-link {
 	.container {
 		padding: 20px;
 		max-width: 95%;
+		border-radius: 0px;
 	}
 
 	h1 {

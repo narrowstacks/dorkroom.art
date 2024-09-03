@@ -432,10 +432,12 @@ body.darkroom-mode input[type="checkbox" i] {
 @media (max-width: 600px) {
 	body {
 		overflow: auto; /* Enable scrolling on mobile devices */
+        border-radius: 0px;
 	}
 	.container {
 		padding: 15px;
 		width: 95%;
+        border-radius: 0px;
 	}
 	h1 {
 		font-size: 28px;

@@ -15,6 +15,16 @@ body {
 	width: 100%;
 }
 
+.home-button {
+	color: var(--purple);
+	border: 2px solid var(--purple)
+}
+
+.home-button:hover {
+	color: white;
+	background-color: var(--purple);
+}
+
 h1 {
 	color: #8e388e;
 	font-size: 36px;
@@ -40,10 +50,6 @@ body.dark-mode label {
 	color: #a5d6a7;
 }
 
-.home-button {
-	color: var(--purple);
-	border: 2px solid var(--purple);
-}
 
 @media (max-width: 768px) {
 	body{

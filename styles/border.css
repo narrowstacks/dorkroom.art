@@ -12,7 +12,8 @@
 }
 
 .home-button:hover {
-	background-color: var(--hover-background-color);
+	color: white;
+	background-color: var(--primary-color);
 }
 
 body.dark-mode .home-button {
@@ -230,6 +231,9 @@ body.high-contrast-mode .print-preview {
 }
 
 @media (max-width: 768px) {
+	.body{
+		color:white;
+	}
 	.content {
 		flex-direction: column;
 		gap: 0px;

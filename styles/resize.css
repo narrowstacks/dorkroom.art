@@ -20,6 +20,16 @@ h2 {
 	margin-top: 20px;
 }
 
+.home-button {
+	color: var(--blue);
+	border: 2px solid var(--blue);
+}
+
+.home-button:hover {
+	color: white;
+	background-color: var(--blue);
+}
+
 .input-group-container {
 	display: flex;
 	justify-content: space-between;
@@ -90,6 +100,14 @@ input[type="number"] {
 }
 
 @media (max-width: 768px) {
+	body {
+		background: white;
+	}
+
+	body.dark-mode {
+		background: black;
+	}
+
 	.content {
 		flex-direction: column;
 		gap: 0px;

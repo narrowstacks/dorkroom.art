@@ -1,7 +1,6 @@
-const modes = ["light", "dark", "darkroom", "high-contrast"];
+const modes = ["light", "darkroom", "high-contrast"];
 const modeIcons = {
 	light: "🌙",
-	dark: "🌞",
 	darkroom: "🟥",
 	"high-contrast": "HC",
 };

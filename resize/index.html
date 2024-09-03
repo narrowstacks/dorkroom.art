@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="/scripts/colormodes.js"></script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/styles/colors.css" />
+		<link rel="stylesheet" href="/styles/common.css" />
+		<link rel="stylesheet" href="/styles/resize.css" />
+
+		<script src="/scripts/resize.js"></script>
+		<title>Print Resizing Calculator</title>
+	</head>
+	<body>
+		<div class="container">
+			<a href="/" class="home-button">return to home</a>
+			<h1>print resizing calculator</h1>
+			<div class="description-container">test test</div>
+			<form id="resizeForm">
+				<div class="input-group-container">
+					<!-- Initial image size -->
+					<div class="input-group">
+						<label for="initial-size"><b>initial image size</b></label>
+
+						<div class="input-container">
+							<label for="originalWidth">width:</label>
+							<input type="number" id="originalWidth" step="0.1" value="4" /> in
+						</div>
+						<div class="input-container">
+							<label for="originalLength">height:</label>
+							<input type="number" id="originalLength" step="0.1" value="6" />
+							in
+						</div>
+					</div>
+
+					<!-- New image size -->
+					<div class="input-group">
+						<label for="new-size"><b>new image size</b></label>
+						<div class="input-container">
+							<label for="newWidth">width:</label>
+							<input type="number" id="newWidth" step="0.1" value="6" /> in
+						</div>
+						<div class="input-container">
+							<label for="newLength">height:</label>
+							<input type="number" id="newLength" step="0.1" value="9" /> in
+						</div>
+					</div>
+				</div>
+				<!-- Exposure Time-->
+				<div class="original-exposure-time">
+					<label for="originalTime">Original Exposure Time:</label>
+					<input type="number" id="originalTime" step="0.1" value="10" />
+					seconds
+				</div>
+				<a href="#" class="link-button link-button-blue" id="calculateExposure"
+					>calculate new exposure time</a
+				>
+			</form>
+			<!-- Results-->
+			<h2 id="newExposureTime">
+				new exposure time: <span id="new-time"></span> seconds
+			</h2>
+			<h2 id="stopsDifference">
+				stops difference: <span id="stops-difference"></span> stops
+			</h2>
+		</div>
+	</body>
+</html>

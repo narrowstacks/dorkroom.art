@@ -1,20 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dorkroom: Darkroom Calculators</title>
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="home.css">
-</head>
-<body>
-    <div class="container">
-        <h1>dorkroom.art</h1>
-        <h2><i>darkroom and photography calculators</i></h2>
-        <i><h3>by <a href="https://www.affords.art" class="custom-link">aaron f.a.</a></h3><br></i>
-        <div class="link-container">
-            <a href="border" class="link-green">darkroom print border calculator</a>
-            <a href="exposure" class="link-purple">darkroom print exposure calculator</a>
-        </div>
-    </div>
-</body>
+	<head>
+		<script src="/scripts/colormodes.js"></script>
+		<meta charset="UTF-8" />
+		<title>Dorkroom: Darkroom Calculators</title>
+		<link rel="stylesheet" href="/styles/colors.css" />
+		<link rel="stylesheet" href="/styles/common.css" />
+		<link rel="stylesheet" href="/styles/home.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>dorkroom.art</h1>
+			<h2><i>darkroom and photography calculators</i></h2>
+			<i
+				><h3>
+					by
+					<a href="https://www.affords.art" class="custom-link">aaron f.a.</a>
+				</h3></i
+			>
+			<div class="link-container-wrapper">
+				<div class="link-container">
+					<h2>darkroom printing</h2>
+					<a
+						href="border"
+						class="link-button link-button-green"
+						title="border calculator"
+						>border calculator</a
+					>
+					<a
+						href="exposure"
+						class="link-button link-button-purple"
+						title="stop-based exposure calculator"
+						>stop-based exposure calculator</a
+					>
+					<a
+						href="resize"
+						class="link-button link-button-blue"
+						title="print resize calculator"
+						>print resize calculator</a
+					>
+				</div>
+				<div class="link-container">
+					<h2>film shooting and developing</h2>
+					<a
+						href="#"
+						class="link-button link-button-unavailable"
+						title="coming soon!"
+						>exposure calculator</a
+					>
+					<a
+						href="#"
+						class="link-button link-button-unavailable"
+						title="coming soon!"
+						>developer dilution calculator</a
+					>
+					<a
+						href="#"
+						class="link-button link-button-unavailable"
+						title="coming soon!"
+						>push/pull calculator</a
+					>
+					<a
+						href="#"
+						class="link-button link-button-unavailable"
+						title="coming soon!"
+						>reciprocity calculator</a
+					>
+				</div>
+			</div>
+			<div class="link-container">
+				<a
+					href="https://github.com/narrowstacks/Darkroom-Calculators"
+					class="link-button link-button-github"
+				>
+					<img
+						src="media/github-mark-white.png"
+						alt="GitHub Logo"
+						class="github-logo"
+					/>
+					<span>contribute on github</span>
+				</a>
+			</div>
+		</div>
+	</body>
+	<script>
+		document.querySelectorAll(".link-button-unavailable").forEach((button) => {
+			button.addEventListener("mouseenter", () => {
+				button.dataset.originalText = button.textContent;
+				button.textContent = "coming soon!";
+			});
+			button.addEventListener("mouseleave", () => {
+				button.textContent = button.dataset.originalText;
+			});
+		});
+	</script>
 </html>

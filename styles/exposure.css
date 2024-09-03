@@ -1,0 +1,41 @@
+body {
+	font-family: "Jost", sans-serif;
+	background-color: #f3e8f5;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.container {
+	max-width: 500px;
+	width: 100%;
+}
+
+h1 {
+	color: #8e388e;
+	font-size: 36px;
+}
+body.dark-mode h1 {
+	color: #a5d6a7;
+}
+
+h2 {
+	color: #8e388e;
+	margin: 2px;
+}
+
+input {
+	width: 10%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #8e388e;
+	border-radius: 5px;
+}
+
+body.dark-mode label {
+	color: #a5d6a7;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="/scripts/colormodes.js"></script>
+		<link rel="stylesheet" href="/styles/colors.css" />
+		<link rel="stylesheet" href="/styles/common.css" />
+		<link rel="stylesheet" href="/styles/reciprocity.css" />
+		<title>Print Exposure Time Calculator</title>
+	</head>
+	<body>
+		<div class="container">
+			<a href="/" class="home-button">return to home</a>
+			<h1>film reciprocity calculator</h1>
+			<div class="content">
+				<form id="reciprocityForm">
+					<div class="selections">
+						<div class="selection">
+							<label for="filmType">film type:</label>
+							<select id="filmType" name="filmType" onchange="updateFilmType()">
+								<option value="1">Ilford Delta 100</option>
+								<option value="2">Ilford Delta 400</option>
+								<option value="3">Ilford Delta 3200</option>
+								<option value="4">Ilford HP5 Plus</option>
+								<option value="5">Ilford FP4 Plus</option>
+								<option value="6">Ilford Pan F Plus</option>
+								<option value="7">Ilford XP2 Super</option>
+								<option value="8">Ilford SFX 200</option>
+								<option value="9">Ilford Ortho Plus</option>
+								<option value="10">Kodak T-Max 100</option>
+								<option value="11">Kodak T-Max 400</option>
+								<option value="12">Kodak T-Max 3200</option>
+								<option value="13">Kodak Tri-X 400</option>
+								<option value="14">Kodak Portra 160</option>
+								<option value="15">Kodak Portra 400</option>
+								<option value="16">Kodak Portra 800</option>
+								<option value="17">Kodak Ektar 100</option>
+								<option value="18">Kodak Gold 200</option>
+								<option value="19">Kodak Ultramax 400</option>
+								<option value="20">Custom</option>
+							</select>
+						</div>
+						<div class="selection"></div>
+						<label class="hidden" for="customFactor"
+							>custom film reciprocity factor:</label
+						>
+						<input
+							class="hidden"
+							type="number"
+							id="customFactor"
+							name="customFactor"
+							step="0.01"
+							min="1"
+							max="2"
+							value="1.1"
+							required
+						/>
+					</div>
+					<div class="selection"></div>
+
+					<div class="selections">
+						<div class="selection">
+							<label for="exposureTime"
+								>measured exposure time (in seconds):</label
+							>
+							<input
+								type="number"
+								id="exposureTime"
+								name="exposureTime"
+								required
+							/>
+						</div>
+						<div class="selection">
+							<label for="newExposureTime"
+								>new exposure time (in seconds):</label
+							>
+							<div id="newExposureTime" class="hidden">
+								<p>
+									new exposure time:
+									<span id="newExposureTimeValue">0</span> seconds
+								</p>
+							</div>
+						</div>
+					</div>
+					<button type="button" onclick="calculateExposureTime()">
+						calculate new exposure time
+					</button>
+				</form>
+			</div>
+		</div>
+		<script src="/scripts/reciprocity.js"></script>
+	</body>
+</html>

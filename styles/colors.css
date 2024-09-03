@@ -1,0 +1,103 @@
+:root {
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semi-bold: 600;
+	--font-weight-bold: 700;
+
+	--container-background: #ffffff;
+	--container-background-dark: #333333;
+
+	--p-background: #e0f2f1;
+	--p-background-dark: #262626;
+
+	--home-button: #e0f2f1;
+	--home-button-hover: #b2dfdb;
+	--home-button-dark: #262626;
+	--home-button-dark-hover: #4d4d4d;
+
+	--text-color: #333333;
+	--text-color-dark: #ffffff;
+
+	--pastel-red-background: #f5e0e0;
+	--pastel-red-h1: #d9534f;
+	--pastel-red-h2: #e57373;
+	--pastel-red-h3: #f08080;
+	--pastel-red-button: #f08080;
+	--pastel-red-button-text: #333;
+	--pastel-red-button-border: #f08080;
+
+	--green: #66bb6a;
+	--green-hover: #388e3c;
+
+	--purple: #a53fa5;
+	--purple-hover: #4f194f;
+
+	--blue: #4f7dd9;
+	--blue-hover: #2e5ba8;
+
+	--red: #d9534f;
+	--red-hover: #a63f3a;
+
+	--orange: #ff8a65;
+	--orange-hover: #e07d5f;
+
+	--yellow: #fbc02d;
+	--yellow-text: #000000;
+	--yellow-hover: #d9a827;
+
+	--github: #333333;
+	--github-hover: #666666;
+	--github-text: #ffffff;
+	--github-dark: #ffffff;
+	--github-dark-hover: #cccccc;
+	--github-dark-text: #333333;
+	--github-dark-text-hover: #000000;
+
+	--gradient-bg-fallback: #f4f4f4; /* fallback for old browsers */
+	--gradient-bg-dark-fallback: #212121; /* fallback for old browsers */
+	--gradient-homepage-light-newer: linear-gradient(
+		to right,
+		#f27121,
+		#e94057,
+		#8a2387
+	);
+	--gradient-homepage-dark-newer: linear-gradient(to right, #000428, #004e92);
+
+	--shadow-color: #0000001a;
+
+	/* high contrast (e-ink display) mode */
+	--high-contrast-background: #ffffff; /* White background */
+	--high-contrast-text-color: #000000; /* Black text for high contrast */
+	--high-contrast-light-grey: #e0e0e0; /* Light grey for subtle elements */
+	--high-contrast-dark-grey: #333333; /* Dark grey for more prominent elements */
+
+	/* darkroom mode */
+	--darkroom-background: #000000; /* Black background */
+	--darkroom-text-color: #ff0000; /* Bright red text */
+	--darkroom-dark-red: #8b0000; /* Dark red for less prominent elements */
+	--darkroom-light-red: #ff6347; /* Light red for highlights */
+	--darkroom-medium-red: #b22222; /* Medium red for regular elements */
+	--darkroom-pure-red: #ff0000; /* Pure red for important elements */
+
+	/* border.css */
+	--background-color: #e8f5e9;
+	--white: white;
+	--primary-color: #388e3c;
+	--secondary-color: #66bb6a;
+	--hover-background-color: #f1f1f1;
+	--dark-mode-background: #444444;
+	--dark-mode-text: #ffffff;
+	--dark-mode-border: #888888;
+	--dark-mode-hover-background: #666666;
+	--header-color: #388e3c;
+	--header-dark-mode-color: #a5d6a7;
+	--label-color: #2e7d32;
+	--input-border: #a5d6a7;
+	--button-background: #66bb6a;
+	--button-hover-background: #388e3c;
+	--paper-background: #fff;
+	--preview-border: #a5d6a7;
+	--preview-background: #66bb6a;
+	--preview-background-dark: #0b4072;
+}

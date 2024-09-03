@@ -41,7 +41,7 @@ body::before {
 	border-radius: 10px;
 	box-shadow: 0 4px 8px var(--shadow-color);
 	padding: 20px 40px;
-	padding-bottom: 200px;
+	padding-bottom: 20px;
 	width: 100%;
 	text-align: center;
 	display: flex;

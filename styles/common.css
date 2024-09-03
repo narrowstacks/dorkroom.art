@@ -402,13 +402,13 @@ body.darkroom-mode .home-button:hover {
 body.darkroom-mode .link-button {
 	background-color: var(--darkroom-background);
 	color: var(--darkroom-pure-red);
-	border: 1px solid var(--darkroom-pure-red);
+	border: 1px dashed var(--darkroom-pure-red);
 }
 
 body.darkroom-mode .link-button:hover {
 	background-color: var(--darkroom-pure-red);
 	color: var(--darkroom-background);
-	border: 1px dashed var(--darkroom-background);
+	border: 1px solid var(--darkroom-background);
 }
 
 body.darkroom-mode .description-container {

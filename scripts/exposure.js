@@ -25,6 +25,23 @@ function initialize() {
 	}
 }
 
+function addRemoveStop(stopValue) {
+    const stopChangeInput = document.getElementById("stop-change");
+    let currentValue = parseFloat(stopChangeInput.value) || 0;
+    
+    currentValue += stopValue;
+    
+    // Round up if the value ends with .99
+    if (Math.abs(currentValue % 1).toFixed(2) === '0.99') {
+        currentValue = Math.round(currentValue);
+    }
+    
+    stopChangeInput.value = currentValue.toFixed(2);
+    
+    // Trigger the calculation to update results
+    calculateExposure();
+}
+
 function calculateExposure() {
 	// Get the input values
 	const initialTime = parseFloat(document.getElementById("initial-time").value);

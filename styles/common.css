@@ -164,6 +164,11 @@ body.dark-mode .home-button:hover {
 	background-color: var(--purple);
 }
 
+.link-button-purple-small {
+	background-color: var(--purple);
+	width: 10%;
+}
+
 .link-button-purple:hover {
 	background-color: var(--purple-hover);
 }

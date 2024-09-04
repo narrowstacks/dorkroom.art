@@ -15,6 +15,7 @@
 - Add disclaimers, instructions, and any other information to each page about the limitations of the calculators.
 - Add an about page.
 - Add a donation link.
+- Add toggle for metric/imperial units site-wide.
 
 
 ## Other implemented features:
@@ -22,6 +23,8 @@
 
 ## Technologies Used
 Pure HTML, Javascript, and CSS! No frameworks or libraries were used.
+
+Otherwise, [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) is used for consistent formatting.
 
 ## Deploying the Website
 As this is a series of static web pages with no server-side elements, you can simply download the files and run them on an apache or nginx server. An easy way to get started is clone the repository and install the VS Code Live Server extension, and run the home page index.html file.

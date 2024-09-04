@@ -20,7 +20,6 @@ This is a website that contains calculators for darkroom and film photography pu
 
 - Add disclaimers, instructions, and any other information to each page about the limitations of the calculators.
 - Add an about page.
-- Add a donation link.
 - Add toggle for metric/imperial units site-wide.
 
 ## Technologies Used

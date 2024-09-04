@@ -27,7 +27,7 @@ Pure HTML, Javascript, and CSS! No frameworks or libraries were used.
 Otherwise, [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) is used for consistent formatting.
 
 ## Deploying the Website
-As this is a series of static web pages with no server-side elements, you can simply download the files and run them on an apache or nginx server. An easy way to get started is clone the repository and install the VS Code Live Server extension, and run the home page index.html file.
+As this is a series of static web pages with no server-side elements, you can simply clone the repository or download the files and run them on an apache or nginx server. An easy way to get started is to clone the repository and install the VS Code Live Server extension, and run the home page index.html file.
 
 # Contributing
 Have a suggestion for a page or a calculator? Found a bug? [Open an issue on the github page](https://github.com/narrowstacks/dorkroom.art/issues)!

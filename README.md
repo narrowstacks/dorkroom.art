@@ -8,9 +8,10 @@
 ## Planned Features
 - **Film exposure conversion calculator**, which helps user maintain or change their relative exposure based on ISO, aperture, and shutter speed.
 - **Dilution calculator**, which helps user calculate the amount of water needed to dilute a given amount of developer, including presets  for various developers and dilution ratios.
+- **Color scheme switcher**, with colorways in light, darkroom (red/black), and high contrast color (black/white for e-ink displays).
+
 - **Film push/pull calculator**, which helps user calculate the amount of time to push or pull their film based on the number of stops pushed or pulled when shooting.
 - **Reciprocity calculator**, which helps user calculate the amount of time to add to their exposure based on the number of stops of reciprocity failure.
-- **Color scheme switcher**, with colorways in light, darkroom (red/black), and high contrast color (black/white for e-ink displays).
 
 ## To-Do
 - Add disclaimers, instructions, and any other information to each page about the limitations of the calculators.

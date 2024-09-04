@@ -231,6 +231,31 @@ body.dark-mode .home-button:hover {
 	margin-right: 8px;
 }
 
+.link-button-ko-fi {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 20px;
+	background-color: #333;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: background-color var(--transition-time) ease;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.link-button-ko-fi:hover {
+	background-color: var(--github-hover);
+}
+
+
+.link-button-ko-fi img {
+	width: 24px;
+	height: auto;
+	vertical-align: text-bottom;
+	margin-right: 8px;
+}
+
 .link-button-github span {
 	line-height: 24px;
 }

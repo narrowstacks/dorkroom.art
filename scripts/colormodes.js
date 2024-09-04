@@ -28,16 +28,24 @@ function updateMode(mode) {
 
 	const modeToggle = document.getElementById("mode-toggle");
 	modeToggle.textContent = modeIcons[mode];
-
-	// only try to update the GitHub logo if on homepage of website
+ 
+	// only try to update the GitHub and Ko-Fi logos if on homepage of website
 	if (window.location.pathname == "/") {
 		const githubLogo = document.querySelector(".github-logo");
+		const kofiLogo = document.querySelector(".ko-fi-logo");
 		githubLogo.src =
-			mode === "dark"
-				? "media/github-mark.png"
+			mode === "light"
+				? "media/github-mark-white.png"
 				: mode === "darkroom"
 				? "media/github-mark-red.png"
 				: "media/github-mark-white.png";
+
+		kofiLogo.src =
+			mode === "light"
+				? "media/kofi-light.png"
+				: mode === "darkroom"
+				? "media/kofi-red.png"
+				: "media/kofi-hc.png";
 	}
 }
 

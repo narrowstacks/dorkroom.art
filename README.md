@@ -1,7 +1,7 @@
 # Dorkroom.art 
 
  This is a website that contains calculators for darkroom and film photography purposes. Many of these these calculators are based on exisiting algorithms, but have been put into a graphical web interface to be more user-friendly and easier to use.
- ## Currently Implemented Calculators:
+ ## Currently Implemented Calculators
  - **Darkroom easel border calculator**, which calculates the easel blade positions of the easel for a given film and paper sizes, and displays a preview of the print on the paper.
  - **Stop-based exposure calculator**, for calculating the exposure time when adjusting one's exposure based on the number of stops.
  - **Print resize calculator**, for calculating the change in stops/seconds of the print when resizing the projection of an image on an enlarger.
@@ -11,7 +11,7 @@
 - **Film push/pull calculator**, which helps user calculate the amount of time to push or pull their film based on the number of stops pushed or pulled when shooting.
 - **Reciprocity calculator**, which helps user calculate the amount of time to add to their exposure based on the number of stops of reciprocity failure.
 
-## To-Do:
+## To-Do
 - Add disclaimers, instructions, and any other information to each page about the limitations of the calculators.
 - Add an about page.
 - Add a donation link.

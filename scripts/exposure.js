@@ -36,18 +36,18 @@ function addRemoveStop(stopValue) {
         currentValue = Math.round(currentValue);
     }
 	// Round down if the value ends with .499
-		let decimal = Math.abs(currentValue % 1).toFixed(3);
-		if (decimal === '0.499') {
-			currentValue = Math.floor(currentValue) + 0.5;
-		} 
-		else if (decimal === '0.667') {
-			currentValue = Math.floor(currentValue) + 0.666;
-		}
-		else if (decimal === '0.334') {
-			currentValue = Math.floor(currentValue) + 0.333;
-		}
-		else if (decimal === '0.501') {
-			currentValue = Math.floor(currentValue) + 0.5;
+	let decimal = Math.abs(currentValue % 1).toFixed(3);
+	if (decimal === '0.499') {
+		currentValue = Math.floor(currentValue) + 0.5;
+	} 
+	else if (decimal === '0.667') {
+		currentValue = Math.floor(currentValue) + 0.666;
+	}
+	else if (decimal === '0.334') {
+		currentValue = Math.floor(currentValue) + 0.333;
+	}
+	else if (decimal === '0.501') {
+		currentValue = Math.floor(currentValue) + 0.5;
     }
 
 

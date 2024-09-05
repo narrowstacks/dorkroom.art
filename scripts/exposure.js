@@ -35,8 +35,13 @@ function addRemoveStop(stopValue) {
     if (Math.abs(currentValue % 1).toFixed(2) === '0.99') {
         currentValue = Math.round(currentValue);
     }
+
+	// Round down if the value ends with .01
+	if (Math.abs(currentValue % 1).toFixed(2) === '0.01') {
+        currentValue = Math.floor(currentValue);
+    }
     
-    stopChangeInput.value = currentValue.toFixed(2);
+    stopChangeInput.value = currentValue.toFixed(3)
     
     // Trigger the calculation to update results
     calculateExposure();

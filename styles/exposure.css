@@ -18,6 +18,14 @@ body {
 	margin-bottom: 10px;
 }
 
+.stops-input {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #8e388e;
+	border-radius: 5px;
+}
+
 .container {
 	max-width: 500px;
 	width: 100%;
@@ -61,7 +69,7 @@ body.dark-mode label {
 .link-button-purple-small {
 	background-color: var(--purple);
 	width: 5%;
-	height: 30%;
+	height: 25%;
 }
 
 .link-button-purple-small:hover {

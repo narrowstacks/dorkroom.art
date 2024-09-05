@@ -1,112 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-		<script src="/scripts/colormodes.js?v=1725431254943?1"></script>
+		<script src="/scripts/colormodes.js?v=1725501963332"></script>
 		<meta charset="UTF-8" />
-		<title>Dorkroom: Darkroom Calculators</title>
-		<link rel="stylesheet" href="/styles/colors.css?v=1725431254943?1" />
-		<link rel="stylesheet" href="/styles/common.css?v=1725431254943?1" />
-		<link rel="stylesheet" href="/styles/home.css?v=1725431254943?1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Darkroom Print Border Calculator</title>
+		<link rel="stylesheet" href="/styles/colors.css?v=1725502375864" />
+		<link rel="stylesheet" href="/styles/common.css?v=1725502375864" />
+		<link rel="stylesheet" href="/styles/border.css?v=1725502375864" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="/scripts/border.js?v=1725501963332"></script>
 	</head>
 	<body>
 		<div class="container">
-			<h1>dorkroom.art</h1>
-			<h2><i>darkroom and photography calculators</i></h2>
-			<i
-				><h3>
-					by
-					<a href="https://www.affords.art" class="custom-link">aaron f.a.</a>
-				</h3></i
-			>
-			<div class="link-container-wrapper">
-				<div class="link-container">
-					<h2>darkroom printing</h2>
+			<a href="../?v=1725502375864 class="home-button">return to home</a>
+			<h1>print border calculator</h1>
+
+			<div class="content">
+				<div
+					class="preview-container"
+					id="previewContainer"
+					style="display: none"
+				>
+					<div id="paperPreview" class="paper-preview">
+						<div id="printPreviewContainer" class="print-preview-container">
+							<div id="printPreview" class="print-preview"></div>
+						</div>
+					</div>
+					<br />
+					<div class="button-container">
+						<a
+							href="#?v=1725502375864
+							class="link-button link-button-green"
+							onclick="toggleOrientation()"
+							>flip paper orientation</a
+						>
+						<a
+							href="#?v=1725502375864
+							class="link-button link-button-green"
+							onclick="flipRatio()"
+							>flip photo aspect ratio</a
+						>
+					</div>
+					<h2>result</h2>
+					<p id="result"></p>
+				</div>
+
+				<form id="borderForm">
+					<div class="selector-group">
+						<div class="selection">
+							<label for="aspectRatio">aspect ratio:</label>
+							<select
+								id="aspectRatio"
+								name="aspectRatio"
+								onchange="updateAspectRatio()"
+							></select>
+						</div>
+
+						<div class="selection">
+							<label for="paperSize">paper size:</label>
+							<select
+								id="paperSize"
+								name="paperSize"
+								onchange="updatePaperSize()"
+							></select>
+						</div>
+					</div>
+
+					<div id="customDimensions" class="dimensions" style="display: none">
+						<div class="dimension">
+							<label for="paperWidth">paper width (in inches):</label>
+							<input
+								type="number"
+								id="paperWidth"
+								name="paperWidth"
+								required
+								oninput="setCustomSize()"
+							/>
+						</div>
+						<div class="dimension">
+							<label for="paperHeight">paper height (in inches):</label>
+							<input
+								type="number"
+								id="paperHeight"
+								name="paperHeight"
+								required
+								oninput="setCustomSize()"
+							/>
+						</div>
+					</div>
+					<div id="customAspectRatio" class="dimensions" style="display: none">
+						<div class="dimension">
+							<label for="customAspectWidth">custom ratio width:</label>
+							<input
+								type="number"
+								id="customAspectWidth"
+								name="customAspectWidth"
+								required
+								oninput="setCustomAspectRatio()"
+							/>
+						</div>
+						<div class="dimension">
+							<label for="customAspectHeight">custom ratio height:</label>
+							<input
+								type="number"
+								id="customAspectHeight"
+								name="customAspectHeight"
+								required
+								oninput="setCustomAspectRatio()"
+							/>
+						</div>
+					</div>
+
+					<label for="minBorder">minimum border size (in inches):</label>
+					<input
+						type="number"
+						id="minBorder"
+						name="minBorder"
+						min="0"
+						step="0.25"
+						required
+						value=".5"
+					/><br />
 					<a
-						href="border"
+						href="#?v=1725502375864
 						class="link-button link-button-green"
-						title="border calculator"
-						>border calculator</a
+						onclick="calculateBorders()"
+						>calculate</a
 					>
-					<a
-						href="exposure"
-						class="link-button link-button-purple"
-						title="stop-based exposure calculator"
-						>stop-based exposure calculator</a
-					>
-					<a
-						href="resize"
-						class="link-button link-button-blue"
-						title="print resize calculator"
-						>print resize calculator</a
-					>
-				</div>
-				<div class="link-container">
-					<h2>film shooting and developing</h2>
-					<a
-						href="#"
-						class="link-button link-button-unavailable"
-						title="coming soon!"
-						>exposure calculator</a
-					>
-					<a
-						href="#"
-						class="link-button link-button-unavailable"
-						title="coming soon!"
-						>developer dilution calculator</a
-					>
-					<a
-						href="#"
-						class="link-button link-button-unavailable"
-						title="coming soon!"
-						>push/pull calculator</a
-					>
-					<a
-						href="#"
-						class="link-button link-button-unavailable"
-						title="coming soon!"
-						>reciprocity calculator</a
-					>
-				</div>
+					<label for="enableOffset" class="custom-checkbox">
+						<input
+							type="checkbox"
+							id="enableOffset"
+							name="enableOffset"
+							onchange="toggleOffsets()"
+						/>
+						<span class="checkmark"></span>
+						enable offsets
+					</label>
+					<br />
+
+					<div id="offsetInputs" style="display: none">
+						<label for="horizontalOffset">Horizontal offset (in inches):</label>
+						<input
+							type="number"
+							id="horizontalOffset"
+							name="horizontalOffset"
+							step="0.25"
+							value="0"
+							onchange="calculateBorders()"
+						/><br />
+
+						<label for="verticalOffset">Vertical offset (in inches):</label>
+						<input
+							type="number"
+							id="verticalOffset"
+							name="verticalOffset"
+							step="0.25"
+							value="0"
+							onchange="calculateBorders()"
+						/><br />
+					</div>
+				</form>
 			</div>
-			<div class="link-container">
-				<a
-					href="https://github.com/narrowstacks/Darkroom-Calculators"
-					class="link-button link-button-github"
-				>
-					<img
-						src="media/github-mark-white.png"
-						alt="GitHub Logo"
-						class="github-logo"
-					/>
-					<span>contribute on github</span>
-				</a>
-			</div>
-			<div class="link-container">
-				<a
-				href ="https://ko-fi.com/affords"
-				class="link-button link-button-ko-fi"
-				>
-				<img
-				src="media/kofi-light.png"
-				alt="Ko-Fi Logo"
-				class="ko-fi-logo"
-				/>
-				<span>support this site!</span>
-				</a>
 		</div>
 	</body>
-	<script>
-		document.querySelectorAll(".link-button-unavailable").forEach((button) => {
-			button.addEventListener("mouseenter", () => {
-				button.dataset.originalText = button.textContent;
-				button.textContent = "coming soon!";
-			});
-			button.addEventListener("mouseleave", () => {
-				button.textContent = button.dataset.originalText;
-			});
-		});
-	</script>
-
-	
 </html>

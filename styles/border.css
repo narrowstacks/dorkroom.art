@@ -2,7 +2,7 @@
 	max-width: 900px;
 	max-height: 600px;
 	width: 90%;
-    padding-bottom: 200px;
+	padding-bottom: 200px;
 }
 
 .home-button {
@@ -52,9 +52,14 @@ body.dark-mode h2 {
 	color: var(--dark-mode-text);
 }
 
+input[type="number"],
+select {
+	margin-bottom: 5px;
+}
+
 label {
 	display: block;
-	margin: 10px 0 5px;
+	margin: 5px 0 5px;
 	color: var(--label-color);
 	font-weight: var(--font-weight-regular);
 }
@@ -231,8 +236,8 @@ body.high-contrast-mode .print-preview {
 }
 
 @media (max-width: 768px) {
-	.body{
-		color:white;
+	.body {
+		color: white;
 	}
 	.content {
 		flex-direction: column;
@@ -352,7 +357,9 @@ body.high-contrast-mode .print-preview {
 	background-color: var(--white);
 	border: 2px solid var(--secondary-color);
 	border-radius: 5px;
-	transition: background-color 0.3s, border-color 0.3s;
+	transition:
+		background-color 0.3s,
+		border-color 0.3s;
 }
 
 /* When the checkbox is checked, add a background color */

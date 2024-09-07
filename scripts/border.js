@@ -1,7 +1,16 @@
 let previewOrientation = "horizontal";
-
 let storedOffsets = { horizontal: 0, vertical: 0 };
-let offsetsInitialized = false; // Flag to track if offsets have been initialized
+let offsetsInitialized = false;
+
+let lastValidValues = {
+	paperWidth: 8,
+	paperHeight: 10,
+	customAspectWidth: 4,
+	customAspectHeight: 3,
+	minBorder: 0.5,
+	horizontalOffset: 0,
+	verticalOffset: 0,
+};
 
 const aspectRatios = {
 	"3/2": "35mm standard frame, 6x9 (2x3)",
@@ -41,6 +50,7 @@ function populateSelectElements() {
 		paperSizeSelect.add(option);
 	}
 }
+
 document.addEventListener("DOMContentLoaded", initialize);
 
 function initialize() {
@@ -59,31 +69,132 @@ function initialize() {
 
 	addEventListeners();
 }
+
 function addEventListeners() {
 	document
 		.getElementById("paperSize")
 		.addEventListener("change", updatePaperSize);
 	document
 		.getElementById("paperWidth")
-		.addEventListener("input", calculateBorders);
+		.addEventListener("input", validateAndCalculate);
 	document
 		.getElementById("paperHeight")
-		.addEventListener("input", calculateBorders);
+		.addEventListener("input", validateAndCalculate);
 	document
 		.getElementById("aspectRatio")
 		.addEventListener("change", updateAspectRatio);
 	document
 		.getElementById("customAspectWidth")
-		.addEventListener("input", calculateBorders);
+		.addEventListener("input", validateAndCalculate);
 	document
 		.getElementById("customAspectHeight")
-		.addEventListener("input", calculateBorders);
+		.addEventListener("input", validateAndCalculate);
 	document
 		.getElementById("minBorder")
-		.addEventListener("input", calculateBorders);
+		.addEventListener("input", validateAndCalculate);
 	document
 		.getElementById("enableOffset")
 		.addEventListener("change", toggleOffsets);
+	document
+		.getElementById("horizontalOffset")
+		.addEventListener("input", validateAndCalculate);
+	document
+		.getElementById("verticalOffset")
+		.addEventListener("input", validateAndCalculate);
+}
+
+function validateAndCalculate() {
+	if (validateInputs()) {
+		updateLastValidValues();
+		calculateBorders();
+	} else {
+		restoreLastValidValues();
+	}
+}
+
+function validateInputs() {
+	const paperWidth = parseFloat(document.getElementById("paperWidth").value);
+	const paperHeight = parseFloat(document.getElementById("paperHeight").value);
+	const minBorder = parseFloat(document.getElementById("minBorder").value);
+	const customAspectWidth = parseFloat(
+		document.getElementById("customAspectWidth").value,
+	);
+	const customAspectHeight = parseFloat(
+		document.getElementById("customAspectHeight").value,
+	);
+
+	if (
+		isNaN(paperWidth) ||
+		isNaN(paperHeight) ||
+		paperWidth <= 0 ||
+		paperHeight <= 0
+	) {
+		displayError("Error: Paper dimensions must be positive numbers");
+		return false;
+	}
+
+	if (
+		isNaN(minBorder) ||
+		minBorder < 0 ||
+		minBorder >= Math.min(paperWidth, paperHeight) / 2
+	) {
+		displayError("Error: Invalid minimum border");
+		return false;
+	}
+
+	if (document.getElementById("aspectRatio").value === "Custom") {
+		if (
+			isNaN(customAspectWidth) ||
+			isNaN(customAspectHeight) ||
+			customAspectWidth <= 0 ||
+			customAspectHeight <= 0
+		) {
+			displayError(
+				"Error: Custom aspect ratio dimensions must be positive numbers",
+			);
+			return false;
+		}
+	}
+
+	return true;
+}
+
+function updateLastValidValues() {
+	lastValidValues.paperWidth = parseFloat(
+		document.getElementById("paperWidth").value,
+	);
+	lastValidValues.paperHeight = parseFloat(
+		document.getElementById("paperHeight").value,
+	);
+	lastValidValues.minBorder = parseFloat(
+		document.getElementById("minBorder").value,
+	);
+	lastValidValues.customAspectWidth = parseFloat(
+		document.getElementById("customAspectWidth").value,
+	);
+	lastValidValues.customAspectHeight = parseFloat(
+		document.getElementById("customAspectHeight").value,
+	);
+	lastValidValues.horizontalOffset = parseFloat(
+		document.getElementById("horizontalOffset").value,
+	);
+	lastValidValues.verticalOffset = parseFloat(
+		document.getElementById("verticalOffset").value,
+	);
+}
+
+function restoreLastValidValues() {
+	document.getElementById("paperWidth").value = lastValidValues.paperWidth;
+	document.getElementById("paperHeight").value = lastValidValues.paperHeight;
+	document.getElementById("minBorder").value = lastValidValues.minBorder;
+	document.getElementById("customAspectWidth").value =
+		lastValidValues.customAspectWidth;
+	document.getElementById("customAspectHeight").value =
+		lastValidValues.customAspectHeight;
+	document.getElementById("horizontalOffset").value =
+		lastValidValues.horizontalOffset;
+	document.getElementById("verticalOffset").value =
+		lastValidValues.verticalOffset;
 }
 
 function toggleOffsets() {
@@ -91,34 +202,29 @@ function toggleOffsets() {
 	const offsetInputs = document.getElementById("offsetInputs");
 
 	if (enableOffset) {
-		// Only set defaults the first time offsets are enabled
 		if (!offsetsInitialized) {
 			document.getElementById("horizontalOffset").value = 0;
 			document.getElementById("verticalOffset").value = 0;
-			offsetsInitialized = true; // Mark that the offsets have been initialized
+			offsetsInitialized = true;
 		} else {
-			// Restore previously stored offsets
 			document.getElementById("horizontalOffset").value =
 				storedOffsets.horizontal;
 			document.getElementById("verticalOffset").value = storedOffsets.vertical;
 		}
 	} else {
-		// Store current offset values
 		storedOffsets.horizontal =
 			document.getElementById("horizontalOffset").value;
 		storedOffsets.vertical = document.getElementById("verticalOffset").value;
 	}
 
 	offsetInputs.style.display = enableOffset ? "block" : "none";
-
-	// Recalculate borders to reflect the current state of offsets
 	calculateBorders();
 }
 
 function getPaperDimensions(paperSize) {
 	const dimensions = {
 		"4x5": [5, 4],
-		"4x6": [6, 5],
+		"4x6": [6, 4],
 		"5x7": [7, 5],
 		"8x10": [10, 8],
 		"11x14": [14, 11],
@@ -136,6 +242,10 @@ function updatePaperSize() {
 
 	if (paperSize === "Custom") {
 		customDimensions.style.display = "flex";
+		customDimensions.style.alignItems = "center";
+		document
+			.getElementById("paperSize")
+			.parentNode.appendChild(customDimensions);
 		document.getElementById("paperWidth").value = "";
 		document.getElementById("paperHeight").value = "";
 	} else {
@@ -145,11 +255,6 @@ function updatePaperSize() {
 		calculateBorders();
 	}
 }
-function setCustomSize() {
-	document.getElementById("paperSize").value = "Custom";
-	document.getElementById("customDimensions").style.display = "flex";
-	calculateBorders();
-}
 
 function updateAspectRatio() {
 	const aspectRatioElement = document.getElementById("aspectRatio");
@@ -157,42 +262,23 @@ function updateAspectRatio() {
 
 	if (aspectRatioElement.value === "Custom") {
 		customAspectRatio.style.display = "flex";
-
-		// Set default values
-		document.getElementById("customAspectWidth").value = "4";
-		document.getElementById("customAspectHeight").value = "3";
+		customAspectRatio.style.alignItems = "center";
+		aspectRatioElement.parentNode.appendChild(customAspectRatio);
 	} else {
 		customAspectRatio.style.display = "none";
 	}
 
-	aspectRatio = calculateAspectRatio(aspectRatioElement.value);
-	calculateBorders(); // Ensure borders are recalculated with the updated aspect ratio
-}
-function setCustomAspectRatio() {
-	document.getElementById("aspectRatio").value = "Custom";
-	document.getElementById("customAspectRatio").style.display = "flex";
 	calculateBorders();
 }
 
 function calculateAspectRatio(aspectRatioValue) {
 	if (aspectRatioValue === "Custom") {
 		const customWidth = parseFloat(
-			document.getElementById("customAspectWidth").value
+			document.getElementById("customAspectWidth").value,
 		);
 		const customHeight = parseFloat(
-			document.getElementById("customAspectHeight").value
+			document.getElementById("customAspectHeight").value,
 		);
-		if (
-			isNaN(customWidth) ||
-			isNaN(customHeight) ||
-			customWidth <= 0 ||
-			customHeight <= 0
-		) {
-			displayError(
-				"error: custom aspect ratio dimensions must be positive numbers"
-			);
-			return null;
-		}
 		return customWidth / customHeight;
 	}
 	return eval(aspectRatioValue);
@@ -200,7 +286,6 @@ function calculateAspectRatio(aspectRatioValue) {
 
 function displayError(message) {
 	document.getElementById("result").innerText = message;
-	document.getElementById("previewContainer").style.display = "none";
 }
 
 function calculateBorders() {
@@ -212,25 +297,13 @@ function calculateBorders() {
 	const paperHeight = parseFloat(document.getElementById("paperHeight").value);
 	const minBorder = parseFloat(document.getElementById("minBorder").value);
 
-	if (isNaN(minBorder) || minBorder < 0) {
-		displayError("error: minimum border must be a positive number");
-		return;
-	}
-
-	if (minBorder >= Math.min(paperWidth, paperHeight) / 2) {
-		displayError(
-			"error: minimum border must be less than half the shortest side of the paper"
-		);
-		return;
-	}
-
 	const availableWidth = paperWidth - 2 * minBorder;
 	const availableHeight = paperHeight - 2 * minBorder;
 
 	const [imageWidth, imageHeight] = calculateImageDimensions(
 		availableWidth,
 		availableHeight,
-		aspectRatio
+		aspectRatio,
 	);
 
 	let borderWidth = (paperWidth - imageWidth) / 2;
@@ -242,16 +315,15 @@ function calculateBorders() {
 
 	if (enableOffset) {
 		horizontalOffset = parseFloat(
-			document.getElementById("horizontalOffset").value
+			document.getElementById("horizontalOffset").value,
 		);
 		verticalOffset = parseFloat(
-			document.getElementById("verticalOffset").value
+			document.getElementById("verticalOffset").value,
 		);
 
 		borderWidth -= horizontalOffset;
 		borderHeight -= verticalOffset;
 
-		// Additional check to ensure that the image does not exceed the paper boundaries on the opposite sides
 		if (
 			borderWidth + imageWidth > paperWidth ||
 			borderHeight + imageHeight > paperHeight ||
@@ -259,17 +331,16 @@ function calculateBorders() {
 			borderHeight < 0
 		) {
 			displayError(
-				"error: offsets result in the image exceeding the paper boundaries"
+				"Error: Offsets result in the image exceeding the paper boundaries",
 			);
 			return;
 		}
 	}
 
-	// Calculate easel blade positions
 	const leftBlade = imageWidth + horizontalOffset;
 	const rightBlade = imageWidth - horizontalOffset;
 	const topBlade = imageHeight - verticalOffset;
-	const bottomBlade = imageHeight - verticalOffset;
+	const bottomBlade = imageHeight + verticalOffset;
 
 	displayResult(
 		imageWidth,
@@ -279,7 +350,7 @@ function calculateBorders() {
 		leftBlade,
 		rightBlade,
 		topBlade,
-		bottomBlade
+		bottomBlade,
 	);
 	updatePreview(paperWidth, paperHeight, imageWidth, imageHeight);
 }
@@ -287,7 +358,7 @@ function calculateBorders() {
 function calculateImageDimensions(
 	availableWidth,
 	availableHeight,
-	aspectRatio
+	aspectRatio,
 ) {
 	if (availableWidth / aspectRatio <= availableHeight) {
 		return [availableWidth, availableWidth / aspectRatio];
@@ -304,42 +375,24 @@ function displayResult(
 	leftBlade,
 	rightBlade,
 	topBlade,
-	bottomBlade
+	bottomBlade,
 ) {
 	document.getElementById("result").innerText =
-		`image dimensions: ${imageHeight.toFixed(2)} x ${imageWidth.toFixed(
-			2
-		)} inches\n` +
-		// `border height: ${borderHeight.toFixed(2)} inches\n` +
-		// `border width: ${borderWidth.toFixed(2)} inches\n` +
-		`left blade: ${leftBlade.toFixed(2)} inches\n` +
-		`right blade: ${rightBlade.toFixed(2)} inches\n` +
-		`top blade: ${topBlade.toFixed(2)} inches\n` +
-		`bottom blade: ${bottomBlade.toFixed(2)} inches`;
+		`Image dimensions: ${imageHeight.toFixed(2)} x ${imageWidth.toFixed(2)} inches\n` +
+		`Left blade: ${leftBlade.toFixed(2)} inches\n` +
+		`Right blade: ${rightBlade.toFixed(2)} inches\n` +
+		`Top blade: ${topBlade.toFixed(2)} inches\n` +
+		`Bottom blade: ${bottomBlade.toFixed(2)} inches`;
 
 	document.getElementById("previewContainer").style.display = "block";
 }
 
-function updatePreview(
-	paperWidth = null,
-	paperHeight = null,
-	imageWidth = null,
-	imageHeight = null
-) {
+function updatePreview(paperWidth, paperHeight, imageWidth, imageHeight) {
 	const paperPreview = document.getElementById("paperPreview");
 	const printPreviewContainer = document.getElementById(
-		"printPreviewContainer"
+		"printPreviewContainer",
 	);
 	const printPreview = document.getElementById("printPreview");
-
-	paperWidth =
-		paperWidth !== null
-			? paperWidth
-			: parseFloat(document.getElementById("paperWidth").value);
-	paperHeight =
-		paperHeight !== null
-			? paperHeight
-			: parseFloat(document.getElementById("paperHeight").value);
 
 	const [previewWidth, previewHeight] =
 		previewOrientation === "vertical"
@@ -385,16 +438,16 @@ function updatePreview(
 		printPreview.style.height = "0";
 	}
 }
+
 function toggleOrientation() {
 	previewOrientation =
 		previewOrientation === "horizontal" ? "vertical" : "horizontal";
 
-	// Swap the offset values programmatically
 	const horizontalOffset = parseFloat(
-		document.getElementById("horizontalOffset").value
+		document.getElementById("horizontalOffset").value,
 	);
 	const verticalOffset = parseFloat(
-		document.getElementById("verticalOffset").value
+		document.getElementById("verticalOffset").value,
 	);
 
 	document.getElementById("horizontalOffset").value = verticalOffset;
